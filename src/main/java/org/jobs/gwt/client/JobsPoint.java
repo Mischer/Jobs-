@@ -1,6 +1,5 @@
 package org.jobs.gwt.client;
 
-import org.jobs.gwt.*;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;

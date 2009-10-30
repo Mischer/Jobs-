@@ -1,6 +1,7 @@
 package org.jobs.persistence.dao.impl;
 
 import java.util.List;
+
 import org.jobs.persistence.bean.Log;
 import org.jobs.persistence.bean.Task;
 import org.jobs.persistence.dao.LogDao;

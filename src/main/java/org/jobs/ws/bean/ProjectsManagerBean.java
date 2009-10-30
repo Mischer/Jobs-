@@ -1,6 +1,5 @@
 package org.jobs.ws.bean;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.jws.WebMethod;
@@ -10,7 +9,6 @@ import javax.jws.soap.SOAPBinding.ParameterStyle;
 import javax.jws.soap.SOAPBinding.Style;
 
 import org.apache.log4j.Logger;
-import org.hibernate.mapping.Collection;
 import org.jobs.persistence.bean.Log;
 import org.jobs.persistence.bean.Project;
 import org.jobs.persistence.bean.Task;
@@ -19,7 +17,6 @@ import org.jobs.persistence.dao.LogDao;
 import org.jobs.persistence.dao.ProjectDao;
 import org.jobs.persistence.dao.TaskDao;
 import org.jobs.persistence.dao.UserDao;
-import org.springframework.util.CollectionUtils;
 
 @WebService(name = "ProjectsManager", serviceName = "ProjectsManager")
 @SOAPBinding(parameterStyle = ParameterStyle.WRAPPED, style = Style.DOCUMENT)

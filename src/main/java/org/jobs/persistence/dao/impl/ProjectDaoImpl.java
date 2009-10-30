@@ -5,10 +5,9 @@
 package org.jobs.persistence.dao.impl;
 
 import java.util.List;
+
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Example;
-import org.hibernate.criterion.Expression;
-import org.hibernate.criterion.Restrictions;
 import org.jobs.persistence.bean.Project;
 import org.jobs.persistence.bean.User;
 import org.jobs.persistence.dao.ProjectDao;
