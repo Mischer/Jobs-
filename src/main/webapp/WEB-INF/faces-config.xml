@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="1.2" xmlns="http://java.sun.com/xml/ns/javaee"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd">
+ 
+ <managed-bean>
+  <managed-bean-name>LoginBean</managed-bean-name>
+  <managed-bean-class>org.jobs.web.bean.LoginBean</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+ </managed-bean>
+ 
+ <managed-bean>
+  <managed-bean-name>ProcessBean</managed-bean-name>
+  <managed-bean-class>org.jobs.web.bean.ProcessBean</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+
+ <managed-bean>
+  <managed-bean-name>UserBean</managed-bean-name>
+  <managed-bean-class>org.jobs.web.bean.UserBean</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+ </managed-bean>
+ 
+  <managed-bean>
+  <managed-bean-name>GroupBean</managed-bean-name>
+  <managed-bean-class>org.jobs.web.bean.GroupBean</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+ </managed-bean>
+
+  <managed-bean>
+  <managed-bean-name>TaskBean</managed-bean-name>
+  <managed-bean-class>org.jobs.web.bean.TaskBean</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+ </managed-bean>
+
+  <managed-bean>
+  <managed-bean-name>ProjectBean</managed-bean-name>
+  <managed-bean-class>org.jobs.web.bean.ProjectBean</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+ </managed-bean>
+ 
+ <navigation-rule>
+  <from-view-id>*</from-view-id>
+  
+  <navigation-case>
+   <from-outcome>fails</from-outcome>
+   <to-view-id>/page/error.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+
+  <navigation-case>
+   <from-outcome>home</from-outcome>
+   <to-view-id>/page/main.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+
+  <navigation-case>
+   <from-outcome>user.home</from-outcome>
+   <to-view-id>/page/user/index.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>user.view</from-outcome>
+   <to-view-id>/page/user/view.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>user.edit</from-outcome>
+   <to-view-id>/page/user/edit.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>user.list</from-outcome>
+   <to-view-id>/page/user/list.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+
+  <navigation-case>
+   <from-outcome>group.home</from-outcome>
+   <to-view-id>/page/group/index.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>group.view</from-outcome>
+   <to-view-id>/page/group/view.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>group.edit</from-outcome>
+   <to-view-id>/page/group/edit.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>group.edit</from-outcome>
+   <to-view-id>/page/group/edit.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>group.list</from-outcome>
+   <to-view-id>/page/group/list.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+
+  <navigation-case>
+   <from-outcome>task.home</from-outcome>
+   <to-view-id>/page/task/index.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>task.view</from-outcome>
+   <to-view-id>/page/task/view.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>task.edit</from-outcome>
+   <to-view-id>/page/task/edit.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>task.edit</from-outcome>
+   <to-view-id>/page/task/edit.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>task.list</from-outcome>
+   <to-view-id>/page/task/list.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+
+  <navigation-case>
+   <from-outcome>project.home</from-outcome>
+   <to-view-id>/page/project/index.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>project.view</from-outcome>
+   <to-view-id>/page/project/view.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>project.edit</from-outcome>
+   <to-view-id>/page/project/edit.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>project.edit</from-outcome>
+   <to-view-id>/page/project/edit.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>project.list</from-outcome>
+   <to-view-id>/page/project/list.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  
+ </navigation-rule>
+ <application>
+  <variable-resolver>org.springframework.web.jsf.DelegatingVariableResolver</variable-resolver>
+  <view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
+ </application>
+</faces-config>

@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:composition template="layout.xhtml">
+		<ui:define name="content">
+			<h:form>
+			<h:panelGrid  columns="2" headerClass="header_table">
+			<label jsfc="h:outputLabel" >User id</label>
+			<label jsfc="h:outputLabel" >#{UserBean.user.id}</label>
+			<label jsfc="h:outputLabel" >User name</label>
+			<label jsfc="h:outputLabel" >#{UserBean.user.name}</label>
+			<label jsfc="h:outputLabel" >User login</label>
+			<label jsfc="h:outputLabel" >#{UserBean.user.login}</label>
+			<label jsfc="h:outputLabel" >User group</label>
+			<label jsfc="h:outputLabel" >#{UserBean.user.group.name}</label>
+
+			<label jsfc="h:outputLabel" >User projects</label>
+			<h:selectManyMenu value="#{UserBean.user.projects}" />
+			
+			</h:panelGrid> 
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+</html>

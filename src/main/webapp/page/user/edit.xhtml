@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="layout.xhtml">
+
+	<ui:define name="content">
+		<h:form>
+			<h:panelGrid columns="2" headerClass="header_table" cellpadding="4" cellspacing="4">
+				<h:outputText value="Name" />
+				<h:outputText value="Value" />
+
+				<label jsfc="h:outputLabel">User name</label>
+				<input type="text" jsfc="h:inputText" value="#{UserBean.user.name}" />
+				<label jsfc="h:outputLabel">User login</label>
+				<input type="text" jsfc="h:inputText" value="#{UserBean.user.login}" />
+				
+			</h:panelGrid>
+			
+			<input type="submit" jsfc="h:commandButton" value="Save" action="#{UserBean.save}" />				
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+
+</html>

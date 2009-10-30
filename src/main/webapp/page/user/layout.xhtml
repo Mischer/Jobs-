@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:composition template="../layout.xhtml">
+	<ui:define name="second_menu">
+	<form jsfc="h:form" id="sub_menu">
+		<ul>
+			<li><h:commandLink action="user.view" value="View User"/></li>
+			<li><h:commandLink action="user.list" value="List User"/></li>
+			<li><h:commandLink action="user.edit" value="Create User"/></li>
+		</ul>
+	</form>		
+	</ui:define>
+	</ui:composition>
+
+</html>

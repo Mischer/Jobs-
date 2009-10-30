@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="layout.xhtml">
+
+	<ui:define name="content">
+		<h:form>
+			<h:dataTable value="#{UserBean.listUser}" var="list">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Login" />
+					</f:facet>
+					<h:commandLink action="user.view" value="#{list.login}">
+						<f:param name="id" value="#{list.id}" />
+					</h:commandLink>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name" />
+					</f:facet>
+					<h:outputText value="#{list.name}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Action" />
+					</f:facet>
+					<h:panelGrid columns="3" cellpadding="3" cellspacing="2">
+						<h:commandLink action="#{UserBean.view}" value="View">
+							<f:param name="id" value="#{list.id}" />
+						</h:commandLink>
+						<h:commandLink action="#{UserBean.edit}" value="Edit">
+							<f:param name="id" value="#{list.id}" />
+						</h:commandLink>
+						<h:commandLink action="#{UserBean.delete}" value="Delete">
+							<f:param name="id" value="#{list.id}" />
+						</h:commandLink>
+					</h:panelGrid>
+				</h:column>
+			</h:dataTable>
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+
+</html>

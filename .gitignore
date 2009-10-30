@@ -1,0 +1,4 @@
+target/*
+war/*
+bin/*
+nb-configuration.xml

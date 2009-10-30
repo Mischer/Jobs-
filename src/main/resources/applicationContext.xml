@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:tx="http://www.springframework.org/schema/tx"
+        xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+                http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="configurationClass" value="org.hibernate.cfg.AnnotationConfiguration" />
+        <property name="configLocation" value="classpath:hibernate.cfg.xml" />
+    </bean>
+
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+	<!-- DAO  -->
+
+    <bean id="dao" class="org.jobs.persistence.dao.impl.DaoImpl" abstract="true" scope="prototype">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <bean id="groupDao" class="org.jobs.persistence.dao.impl.GroupDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="logDao" class="org.jobs.persistence.dao.impl.LogDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="projectDao" class="org.jobs.persistence.dao.impl.ProjectDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="taskDao" class="org.jobs.persistence.dao.impl.TaskDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="userDao" class="org.jobs.persistence.dao.impl.UserDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+	<!-- WS Bean -->
+
+    <bean id="usersManagerTarget" class="org.jobs.ws.bean.UsersManagerBean">
+        <property name="groupDao" ref="groupDao" />
+        <property name="userDao" ref="userDao" />
+    </bean>
+
+    <bean id="projectsManagerTarget" class="org.jobs.ws.bean.ProjectsManagerBean">
+        <property name="logDao" ref="logDao" />
+        <property name="projectDao" ref="projectDao" />
+        <property name="taskDao" ref="taskDao" />
+    </bean>
+
+    <bean id="usersManager" parent="abstractManager">
+        <property name="target" ref="usersManagerTarget" />
+    </bean>
+
+    <bean id="projectsManager" parent="abstractManager">
+        <property name="target" ref="projectsManagerTarget" />
+    </bean>
+
+    <bean id="abstractManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
+		abstract="true">
+        <property name="transactionManager" ref="transactionManager" />
+        <property name="transactionAttributes">
+            <props>
+                <prop key="create*">PROPAGATION_REQUIRED</prop>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="remove*">PROPAGATION_REQUIRED</prop>
+                <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+            </props>
+        </property>
+    </bean>
+
+	<!-- CXF server -->
+
+    <import resource="classpath:META-INF/cxf/cxf.xml" />
+    <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
+    <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+
+    <jaxws:endpoint id="usersWS" implementor="#usersManager" implementorClass="org.jobs.ws.bean.UsersManagerBean"
+		address="/users" />
+
+    <jaxws:endpoint id="projectsWS" implementor="#projectsManager" implementorClass="org.jobs.ws.bean.ProjectsManagerBean"
+		address="/projects" />
+		
+	<!-- CXF client -->
+    <jaxws:client id="usersWSClient" serviceClass="org.jobs.ws.bean.UsersManager"
+                address="http://localhost/jobs-gwt/ws/users" />
+
+    <jaxws:client id="projectsWSClient" serviceClass="org.jobs.ws.bean.ProjectsManager"
+		address="http://localhost/jobs-gwt/ws/projects" />
+
+</beans>
