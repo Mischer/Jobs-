@@ -1,4 +1,7 @@
 target/*
 war/*
 bin/*
+.settings/*
 nb-configuration.xml
+.project
+.classpath

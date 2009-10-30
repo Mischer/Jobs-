@@ -2,10 +2,9 @@ package org.jobs.ws.bean;
 
 import java.util.Date;
 import java.util.List;
+
 import org.jobs.JobsTest;
 import org.jobs.persistence.bean.Log;
-import static org.junit.Assert.fail;
-
 import org.jobs.persistence.bean.Project;
 import org.jobs.persistence.bean.Task;
 import org.jobs.persistence.bean.User;
