@@ -1,20 +1,25 @@
 package org.jobs.web.bean;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.model.SelectItem;
+
 import org.apache.log4j.Logger;
+import org.jobs.persistence.bean.Group;
 import org.jobs.persistence.bean.User;
+import org.jobs.web.FacesUtils;
 import org.jobs.ws.bean.UsersManager;
 
 public class UserBean {
 	private static Logger log = Logger.getLogger(UserBean.class);
 	private UsersManager userManager = null;
 	
-	private User user;
+	private User user = new User();
+	private Long group;
 	
 	public UserBean() {
 		userManager = (UsersManager) FacesUtils.getBean("usersWSClient");
-		user = userManager.getUserAll().get(0);
     }
 	
 	public String delete(){
@@ -39,6 +44,7 @@ public class UserBean {
 	}
 
 	public String save(){
+		user.setGroup(userManager.getGroup(group));
 		if (user.getId()!=null){
 			if(log.isDebugEnabled()){
 				log.debug(String.format("Update user with id = %s ", user.getId()));
@@ -53,6 +59,16 @@ public class UserBean {
 		return "user.view";
 	}
 
+	public List<SelectItem> getGroups() {
+		if (log.isDebugEnabled()) {
+			log.debug("Get all group.");
+		}
+		List<SelectItem> items = new ArrayList<SelectItem>();
+		for (Group group : userManager.getGroupAll()) {
+			items.add(new SelectItem(group.getId(), group.getName(), group.getDescription()));
+		}
+		return items;
+	}
 
 	public List<User> getListUser(){
 		return userManager.getUserAll();
@@ -64,5 +80,13 @@ public class UserBean {
 	
 	public User getUser() {
 	    return user;
+    }
+	
+	public void setGroup(Long group) {
+	    this.group = group;
+    }
+	
+	public Long getGroup() {
+	    return group;
     }
 }

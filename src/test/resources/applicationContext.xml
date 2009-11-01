@@ -107,9 +107,9 @@
 		
 	<!-- CXF client -->
     <jaxws:client id="usersWSClient" serviceClass="org.jobs.ws.bean.UsersManager"
-                address="http://localhost/jobs-gwt/ws/users" />
+                address="http://localhost/jobs/ws/users" />
 
     <jaxws:client id="projectsWSClient" serviceClass="org.jobs.ws.bean.ProjectsManager"
-		address="http://localhost/jobs-gwt/ws/projects" />
+		address="http://localhost/jobs/ws/projects" />
 
 </beans>

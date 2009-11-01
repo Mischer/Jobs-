@@ -32,6 +32,8 @@ public class Group implements Serializable {
     private Long id;
     @Column(name = "name")
     private String name;
+    @Column(name = "description")
+    private String description;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "group", fetch = FetchType.EAGER)
     private Set<User> users = new HashSet<User>();
 
@@ -52,6 +54,14 @@ public class Group implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+    
+    public void setDescription(String description) {
+	    this.description = description;
+    }
+    
+    public String getDescription() {
+	    return description;
     }
 
     public Set<User> getUsers() {

@@ -245,7 +245,7 @@
 				<version>2.2</version> <configuration> <encoding>${project.build.sourceEncoding}</encoding> </configuration> </plugin>
 			-->
 		</plugins>
-		<finalName>jobs-gwt</finalName>
+		<finalName>jobs</finalName>
 	</build>
 	<properties>
 		<cxf.version>2.2.3</cxf.version>

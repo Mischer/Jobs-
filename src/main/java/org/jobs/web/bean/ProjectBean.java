@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.jobs.persistence.bean.Project;
+import org.jobs.web.FacesUtils;
 import org.jobs.ws.bean.ProjectsManager;
 import org.jobs.ws.bean.UsersManager;
 
@@ -14,7 +15,7 @@ public class ProjectBean {
 	private ProjectsManager projectsManager = null;
 	private UsersManager usersManager = null;
 	
-	private Project project = null;
+	private Project project = new Project();
 	
 	public ProjectBean() {
 		projectsManager = (ProjectsManager) FacesUtils.getBean("projectsWSClient");

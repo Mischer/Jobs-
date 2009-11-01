@@ -1,6 +1,7 @@
 package org.jobs.web.bean;
 
 import org.jobs.persistence.bean.User;
+import org.jobs.web.FacesUtils;
 import org.jobs.ws.bean.UsersManager;
 
 /**
