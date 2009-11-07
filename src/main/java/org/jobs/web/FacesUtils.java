@@ -2,7 +2,7 @@ package org.jobs.web;
 
 import javax.faces.context.FacesContext;
 
-import org.apache.catalina.session.StandardSessionFacade;
+import javax.servlet.http.HttpSession;
 import org.springframework.web.jsf.FacesContextUtils;
 
 public class FacesUtils {
@@ -13,12 +13,12 @@ public class FacesUtils {
     }
 
     public static Object getSessionAttribute(String name) {
-        StandardSessionFacade session = (StandardSessionFacade) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
         return session.getAttribute(name);
     }
 
     public static void setSessionAttribute(String name, Object value) {
-        StandardSessionFacade session = (StandardSessionFacade) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
         session.setAttribute(name, value);
     }
 
