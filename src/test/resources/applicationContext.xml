@@ -94,7 +94,7 @@
     -->
 
 	<!-- CXF server -->
-
+<!--
     <import resource="classpath:META-INF/cxf/cxf.xml" />
     <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
     <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
@@ -104,12 +104,13 @@
 
     <jaxws:endpoint id="projectsWS" implementor="#projectsManager" implementorClass="org.jobs.ws.bean.ProjectsManagerBean"
 		address="/projects" />
-		
-	<!-- CXF client -->
+-->
+        <!-- CXF client -->
+<!--
     <jaxws:client id="usersWSClient" serviceClass="org.jobs.ws.bean.UsersManager"
-                address="http://localhost/jobs/ws/users" />
+                address="http://localhost:8084/jobs/ws/users" />
 
     <jaxws:client id="projectsWSClient" serviceClass="org.jobs.ws.bean.ProjectsManager"
-		address="http://localhost/jobs/ws/projects" />
-
+		address="http://localhost:8084/jobs/ws/projects" />
+-->
 </beans>

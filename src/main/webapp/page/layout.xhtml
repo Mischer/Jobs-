@@ -1,99 +1,81 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html" xmlns:c="http://java.sun.com/jstl/core">
-	
-<head>
-
-  <title>Your Page Title</title>
-
-  <link rel="stylesheet" href="/jobs/css/style.css" type="text/css" />
-  <!--[if lt IE 7]>
-  <link rel="stylesheet" href="/jobs/css/iefixes.css" type="text/css" />
-  <![endif]-->
-</head>
-<body>
-<div id="container">
-<div id="header">
-<div id="logo">
-	<a href="#" title="Return to homepage"><img style="width: 281px; height: 31px;" src="/jobs/images/logo.png" alt="Your Site Name" /></a>
-</div><!--End logo-->
-
-<!--For the search feature to work, you will of course need to do some server side scripting.-->
-
-<form id="search" method="get" action="">
-<div>
-	<input type="text" value="Search Our Site" id="s" maxlength="64" name="keywords" onfocus="if(this.value=='Search Our Site')value=''" onblur="if(this.value=='')value='Search Our Site';" />
-	<input type="submit" id="submit" value="Search" />
-</div>
-</form>
-	
-</div><!--End header-->
-
-<!--Begin main navigation menu-->
-
-<div id="menu">
-<form jsfc="h:form">
-<ul>
-	<li><h:commandLink value="Home" action="home" /></li>
-	<li><h:commandLink value="User" action="user.home" /></li>
-	<li><h:commandLink value="Group" action="group.home" /></li>
-	<li><h:commandLink value="Projets" action="project.home" /></li>
-	<li><h:commandLink value="My tasks" action="task.home" /></li>
-</ul>
-</form>
-
-</div><!--End main navigation menu-->
-<ui:insert name="second_menu" />
-<div class="clear-fix" id="wrapper">
-
-<!--The following division is your main content division-->
-<div id="left-column">
-<ui:insert name="content" >
-
-<h2>Content</h2>
-<p>Sorry, content does'n exist. </p>
-
- </ui:insert>
-</div><!--[if !IE]>End left-column<![endif]-->
-
-<!--Place secondary content in the following division.-->
-
-<div id="right-column">
-
-<h3>Heading</h3>
-
-<a href="#">Test link</a>
-
-<ui:insert name="link" >
-<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse arcu enim, commodo id, auctor id, aliquet sit amet, erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-</ui:insert>
-
-</div><!--End right-column-->
-
-</div><!--End wrapper-->
-
-</div><!--End container-->
-
-<div id="footer">
-
-<!--Begin nothing goes here--><div id="footer-left"></div><div id="footer-right"></div><!--End nothing goes here-->
-
-<div id="footer-content">
-
-<div id="footer-navigation">
-
-<a href="#" title="View Our Terms of Use">Terms </a>&middot; <a href="#" title="Our Privacy Policy">Privacy Policy </a>&middot; <a href="#" title="View a Map of Our Site">Site Map </a>&middot; Design by <a href="http://www.firstlightwebdesign.com">First Light Web Design</a>
-
-</div><!--End footer-navigation-->
-
-<p>Copyright &copy; 2009 Jobs System.  All rights reserved.</p>
-
-</div><!--End footer-content-->
-
-</div><!--End footer-->
-
-</body>
-
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:c="http://java.sun.com/jstl/core">
+    <head>
+        <title>Your Page Title</title>
+        <link rel="stylesheet" href="/jobs/css/style.css" type="text/css" />
+        <!--[if lt IE 7]>
+        <link rel="stylesheet" href="/jobs/css/iefixes.css" type="text/css" />
+        <![endif]-->
+    </head>
+    <body>
+    	<h:form>
+    		<h:selectOneMenu value="#{SessionBean.currentLocale}" valueChangeListener="#{SessionBean.changeLocaleListener}" immediate="true" onchange="submit()">
+    			<f:selectItems value="#{SessionBean.locale}"/>
+    		</h:selectOneMenu>
+    	</h:form>
+    	<ui:insert name="application" >
+        <div id="container" >
+            <div id="header">
+                <div id="logo">
+                    <a href="#" title="Return to homepage"><img style="width: 281px; height: 31px;" src="/jobs/images/logo.png" alt="Your Site Name" /></a>
+                </div><!--End logo-->
+                <!--For the search feature to work, you will of course need to do some server side scripting.-->
+                <div id="setting">
+                	<!-- 
+                	<h:commandButton value="Logout" />|<h:commandButton value="Setting" />
+                	 --> 
+                	<a href="#" >Logout</a>|<a href="#" >Setting</a>
+                </div>
+                <form id="search" method="get" action="">
+                    <div>
+                        <input type="text" value="Search Our Site" id="s" maxlength="64" name="keywords" onfocus="if(this.value=='Search Our Site')value=''" onblur="if(this.value=='')value='Search Our Site';" />
+                        <input type="submit" id="submit" value="Search" />
+                    </div>
+                </form>
+            </div><!--End header-->
+            <!--Begin main navigation menu-->
+            <div id="menu">
+                <form jsfc="h:form">
+                    <ul>
+                        <li><h:commandLink value="Home" action="home" /></li>
+                        <li><h:commandLink value="User" action="user.home" /></li>
+                        <li><h:commandLink value="Group" action="group.home" /></li>
+                        <li><h:commandLink value="Projets" action="project.home" /></li>
+                        <li><h:commandLink value="My tasks" action="task.home" /></li>
+                    </ul>
+                </form>
+            </div><!--End main navigation menu-->
+            <ui:insert name="second_menu" />
+            <div class="clear-fix" id="wrapper">
+                <!--The following division is your main content division-->
+                <div id="left-column">
+                    <ui:insert name="content" >
+                        <h2>Content</h2>
+                        <p>Sorry, content does'n exist. </p>
+                    </ui:insert>
+                </div><!--[if !IE]>End left-column<![endif]-->
+                <!--Place secondary content in the following division.-->
+                <div id="right-column">
+                    <h3>Heading</h3>
+                    <a href="#">Test link</a>
+                    <ui:insert name="link" >
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse arcu enim, commodo id, auctor id, aliquet sit amet, erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                    </ui:insert>
+                </div><!--End right-column-->
+            </div><!--End wrapper-->
+        </div><!--End container-->
+        <div id="footer">
+            <!--Begin nothing goes here--><div id="footer-left"></div><div id="footer-right"></div><!--End nothing goes here-->
+            <div id="footer-content">
+                <div id="footer-navigation">
+                    <a href="#" title="View Our Terms of Use">Terms </a>&middot; <a href="#" title="Our Privacy Policy">Privacy Policy </a>&middot; <a href="#" title="View a Map of Our Site">Site Map </a>&middot; Design by <a href="http://www.firstlightwebdesign.com">First Light Web Design</a>
+                </div><!--End footer-navigation-->
+                <p>Copyright &copy; 2009 Jobs System.  All rights reserved.</p>
+            </div><!--End footer-content-->
+        </div><!--End footer-->
+        </ui:insert>
+    </body>
 </html>

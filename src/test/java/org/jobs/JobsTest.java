@@ -11,6 +11,7 @@ import org.junit.runners.Suite;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+//@Ignore
 @RunWith(Suite.class)
 @Suite.SuiteClasses({UsersManagerBeanTest.class, ProjectsManagerBeanTest.class})
 public class JobsTest {

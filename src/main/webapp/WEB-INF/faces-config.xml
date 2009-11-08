@@ -3,6 +3,32 @@
  xmlns:xi="http://www.w3.org/2001/XInclude"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd">
  
+ <lifecycle>
+	<phase-listener>org.jobs.web.LoginPhase</phase-listener>
+ </lifecycle>
+
+ <application>
+  <variable-resolver>org.springframework.web.jsf.DelegatingVariableResolver</variable-resolver>
+  <view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
+	<locale-config>
+  		<default-locale>en</default-locale>
+	  	<supported-locale>en</supported-locale>
+  		<supported-locale>ru</supported-locale>
+	</locale-config>
+  </application>
+ <application>
+ 	<resource-bundle>
+ 		<base-name>org.jobs.web.messages</base-name>
+ 		<var>msgs</var>
+ 	</resource-bundle>
+ </application>
+ 
+ <managed-bean>
+  <managed-bean-name>SessionBean</managed-bean-name>
+  <managed-bean-class>org.jobs.web.SessionBean</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+
  <managed-bean>
   <managed-bean-name>LoginBean</managed-bean-name>
   <managed-bean-class>org.jobs.web.bean.LoginBean</managed-bean-class>
@@ -154,8 +180,4 @@
   </navigation-case>
   
  </navigation-rule>
- <application>
-  <variable-resolver>org.springframework.web.jsf.DelegatingVariableResolver</variable-resolver>
-  <view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
- </application>
 </faces-config>

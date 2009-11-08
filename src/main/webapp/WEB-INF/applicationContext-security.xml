@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bean:beans xmlns="http://www.springframework.org/schema/security" xmlns:bean="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans	 http://www.springframework.org/schema/beans/spring-beans.xsd
+	 http://www.springframework.org/schema/security 	 http://www.springframework.org/schema/security/spring-security-2.0.1.xsd">
+
+	<global-method-security secured-annotations="enabled">
+	</global-method-security>
+
+	<http auto-config="true">
+		<port-mappings>
+			<port-mapping http="8080" https="8443" />
+		</port-mappings>
+		<concurrent-session-control max-sessions="1" />
+		<intercept-url pattern="/ws/**" filters="none" />
+		<intercept-url pattern="/css/**" filters="none" />
+		<intercept-url pattern="/images/**" filters="none" />
+		<intercept-url pattern="/page/*.*" filters="none" />
+		<intercept-url pattern="/page/main.jsf" access="ROLE_USER" />
+		<intercept-url pattern="/**" access="ROLE_USER" />
+		<form-login login-page="/page/login.jsf" default-target-url="/page/main.jsf"/>
+	</http>
+	
+	<authentication-provider>
+		<user-service>
+			<user name="admin" password="admin" authorities="ROLE_USER" />
+			<user name="test" password="test" authorities="ROLE_USER" />
+		</user-service>
+	</authentication-provider>
+
+	<bean:bean id="loggerListener" class="org.springframework.security.event.authentication.LoggerListener" />
+</bean:beans>

@@ -21,11 +21,12 @@
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
 
+
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
 	<!-- DAO  -->
 
-    <bean id="dao" class="org.jobs.persistence.dao.impl.DaoImpl" abstract="true" scope="prototype">
+    <bean id="dao" class="org.jobs.persistence.dao.impl.DaoImpl" abstract="true">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
 
@@ -47,6 +48,18 @@
 
 	<!-- WS Bean -->
 
+    <bean id="usersManager" class="org.jobs.ws.bean.UsersManagerBean">
+        <property name="groupDao" ref="groupDao" />
+        <property name="userDao" ref="userDao" />
+    </bean>
+
+    <bean id="projectsManager" class="org.jobs.ws.bean.ProjectsManagerBean">
+        <property name="logDao" ref="logDao" />
+        <property name="projectDao" ref="projectDao" />
+        <property name="taskDao" ref="taskDao" />
+        <property name="userDao" ref="userDao" />
+    </bean>
+<!--
     <bean id="usersManagerTarget" class="org.jobs.ws.bean.UsersManagerBean">
         <property name="groupDao" ref="groupDao" />
         <property name="userDao" ref="userDao" />
@@ -78,6 +91,7 @@
             </props>
         </property>
     </bean>
+    -->
 
 	<!-- CXF server -->
 
@@ -90,12 +104,14 @@
 
     <jaxws:endpoint id="projectsWS" implementor="#projectsManager" implementorClass="org.jobs.ws.bean.ProjectsManagerBean"
 		address="/projects" />
-		
+
 	<!-- CXF client -->
     <jaxws:client id="usersWSClient" serviceClass="org.jobs.ws.bean.UsersManager"
-                address="http://localhost/jobs/ws/users" />
+                address="http://localhost:8080/jobs/ws/users" />
 
     <jaxws:client id="projectsWSClient" serviceClass="org.jobs.ws.bean.ProjectsManager"
-		address="http://localhost/jobs/ws/projects" />
+		address="http://localhost:8080/jobs/ws/projects" /><!--
+		
+	<import resource="applicationContext-security.xml"/>
 
-</beans>
+--></beans>

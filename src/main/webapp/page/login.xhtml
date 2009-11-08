@@ -1,20 +1,28 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-    <body>
-        <h2>Login</h2>
-        <form jsfc="h:form">
-            <h:panelGrid columns="2">
-                <label for="login" jsfc="h:outputText">Login</label>
-                <input type="text" id="login" jsfc="h:inputText" value="#{LoginBean.login}" />
-                <label for="pass" jsfc="h:outputLabel">Password</label>
-                <input type="password" jsfc="h:inputSecret" id="pass" value="#{LoginBean.pass}" />
-            </h:panelGrid>
-            <h:commandButton action="#{LoginBean.submitAction}" value="Login" />
-        </form>
-    </body>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:c="http://java.sun.com/jstl/core">
+      
+    <ui:composition template="layout.xhtml">
+    	<ui:define name="application">
+	        <div id="login">
+	            <a href="#" title="">
+	            	<img style="width: 281px; height: 31px;" src="/jobs/images/logo.png" alt="Your Site Name" />
+	            </a>
+	            <form jsfc="h:form">
+	            	
+	                <h:panelGrid columns="3" cellpadding="2">
+	                    <label for="j_username" jsfc="h:outputText">#{msgs.login_login}</label>
+	                    <input type="text" id="j_username" jsfc="h:inputText" value="#{LoginBean.login}" required="true"/>
+		            	<h:message for="j_username" />
+	                    <label for="j_password" jsfc="h:outputLabel">#{msgs.login_password}</label>
+	                    <input type="password" required="true" jsfc="h:inputSecret" id="j_password" value="#{LoginBean.pass}" />
+	                    <h:message for="j_password" />
+	                </h:panelGrid>
+	                <h:commandButton style="float: left;" action="#{LoginBean.submitAction}" value="#{msgs.login_enter}" />
+	            </form>
+	        </div>
+        </ui:define>
+    </ui:composition>
 </html>

@@ -4,7 +4,7 @@ body {font-size: 12px;
       font-family: "palatino linotype", "trebuchet ms", "times new roman";
       margin: 0;
       padding: 0;
-      background: #F3F3F3 url(images/background.png) repeat-x;
+      background: #F3F3F3 url(/jobs/images/background.png) repeat-x;
       color: #5B6973;
       text-align: center;} /* Needed to center layout in old IE browsers. */
 
@@ -22,7 +22,7 @@ ul {list-style-type: square;}
 
 img {border: 0;
      margin: 0 0 25px 0;}
-       
+
 h1 {font-size: 26px;}
 h2 {font-size: 24px;}
 h3 {font-size: 22px;}
@@ -55,20 +55,21 @@ a:hover {color: #4153AD; background-color: #F3F3F3;}
 .clear-fix {display:block;}
 
 /* End hide from IE Mac */
-                  
-#container {width: 780px;
+
+#container {/*width: 780px;*/
+            width: 93%;
             margin: 0 auto;
             text-align: left;}
 
 #header {width: 100%;
-         height: 144px;
+         height: 127px;
          position: relative;}
 
 #header h1 {margin: 0;}
 
 #logo {position: absolute;
        left: 0;
-       top: 66px;
+       top: 36px;
        width: 281px;
        height: 31px;}
 
@@ -76,11 +77,18 @@ a:hover {color: #4153AD; background-color: #F3F3F3;}
 
 #logo a {background: transparent;}
 
+#setting {
+	padding: 20px 30px 0 0;
+	float: right;
+}
+#setting input {margin: 5px;}
+#setting a {margin: 5px;}
+
 /* Begin Search Form CSS */
 
 #search {position: absolute;
          right: 0;
-         top: 70px;}
+         top: 60px;}
 
 #search input#s {margin-right: 5px;
                  vertical-align: middle;
@@ -94,8 +102,8 @@ a:hover {color: #4153AD; background-color: #F3F3F3;}
                        color: #6C7074;}
 
 #search input#submit
- 
-{background: #6C7074 url(images/search_background.png) repeat-x;
+
+{background: #6C7074 url(/jobs/images/search_background.png) repeat-x;
  color: #D8DCE0;
  border: 1px solid #515D67;
  vertical-align: middle;
@@ -107,17 +115,18 @@ a:hover {color: #4153AD; background-color: #F3F3F3;}
 /* Begin main navigation menu. */
 
 #menu {width: 100%;
-       height: 42px;
+       height: 38px;
        clear: both;
-       background: url(images/button_end_gradient.png) center left no-repeat;
+       background: url(/jobs/images/button_end_gradient.png) center left no-repeat;
        position: relative;}
 
-#menu ul {list-style-type: none;
+#menu ul {width: 100%;
+          list-style-type: none;
           margin: 0;
           padding: 0;
           position: absolute;
           left: 2px;
-          background: #6A7A86 url(images/menu_background.png) repeat-x;
+          background: #6A7A86 url(/jobs/images/menu_background.png) repeat-x;
           color: #DCE0E4;}
 
 #menu ul li {display: inline;}
@@ -129,12 +138,12 @@ a:hover {color: #4153AD; background-color: #F3F3F3;}
                line-height: 30px;
                display: block;
                float: left !important;
-               background: url(images/button_end_gradient.png) center right no-repeat;
+               background: url(/jobs/images/button_end_gradient.png) center right no-repeat;
                color: #D8DCE0;
                font-size: 16px;
                font-weight: bold;}
 
-#menu ul li a:hover {background: url(images/button_end_gradient.png) center right no-repeat;
+#menu ul li a:hover {background: url(/jobs/images/button_end_gradient.png) center right no-repeat;
                      color: #FFF;}
 
 /* End main navigation menu. */
@@ -143,35 +152,35 @@ a:hover {color: #4153AD; background-color: #F3F3F3;}
 
 
 #sub_menu {width: 100%;
-       height: 22px;
-       clear: both;
-       background: url(images/button_end_gradient.png) center left no-repeat;
-       position: relative;}
+           height: 15px;
+           clear: both;
+           background: url(/jobs/images/button_end_gradient.png) center left no-repeat;
+           position: relative;}
 
 #sub_menu ul {list-style-type: none;
-          margin: 0;
-          padding: 0;
-          position: absolute;
-          left: 2px;
-          background: #6A7A86 url(images/menu_background.png) repeat-x;
-          color: #DCE0E4;}
+              margin: 0;
+              padding: 0;
+              position: absolute;
+              left: 10px;
+              background: #6A7A86 url(/jobs/images/menu_background.png) repeat-x;
+              color: #DCE0E4;}
 
 #sub_menu ul li {display: inline;}
 
 #sub_menu ul li a {text-decoration: none;
-               height: 16px;
-               padding: 0 20px;
-               margin: 0;
-               line-height: 14px;
-               display: block;
-               float: left !important;
-               background: url(images/button_end_gradient.png) center right no-repeat;
-               color: #D8DCE0;
-               font-size: 12px;
-               font-weight: bold;}
+                   height: 18px;
+                   padding: 0 40px;
+                   margin: 0;
+                   line-height: 17px;
+                   display: block;
+                   float: left !important;
+                   background: url(/jobs/images/button_end_gradient.png) center right no-repeat;
+                   color: #D8DCE0;
+                   font-size: 12px;
+                   font-weight: bold;}
 
-#sub_menu ul li a:hover {background: url(images/button_end_gradient.png) center right no-repeat;
-                     color: #FFF;}
+#sub_menu ul li a:hover {background: url(/jobs/images/button_end_gradient.png) center right no-repeat;
+                         color: #FFF;}
 
 /* End sub menu navigation */
 
@@ -188,6 +197,12 @@ a:hover {color: #4153AD; background-color: #F3F3F3;}
                padding: 0;
                float: right;
                margin: 0;}
+
+#login {width: 100px;
+        float: left;
+        padding: 20% 10% 0% 40%;
+        margin: 0 auto;
+        position: relative;}
 
 p#intro {font-size: 24px;
          font-style: italic;
@@ -225,7 +240,7 @@ p#intro {font-size: 24px;
 #footer {width: 790px;
          height: 56px;
          margin: 0 auto;
-         background: #F3F3F3 url(images/footer_background.png) repeat-x;
+         background: #F3F3F3 url(/jobs/images/footer_background.png) repeat-x;
          color: #5B6973;
          clear: both;
          text-align: left;
@@ -239,15 +254,15 @@ p#intro {font-size: 24px;
                top: 0;
                width: 15px;
                height: 56px;
-               background: #F3F3F3 url(images/footer_right.png) no-repeat;
+               background: #F3F3F3 url(/jobs/images/footer_right.png) no-repeat;
                color: #5B6973;}
-               
+
 #footer-left {position: absolute;
               left: 0;
               top: 0;
               width: 15px;
               height: 56px;
-              background: #F3F3F3 url(images/footer_left.png) no-repeat;
+              background: #F3F3F3 url(/jobs/images/footer_left.png) no-repeat;
               color: #5B6973;}
 
 #footer p {margin: 0;}
@@ -259,7 +274,7 @@ p#intro {font-size: 24px;
 
 /* Featured services */
 
-.featured-wrapper {background: #6A7A86 url(images/featured_background.png) repeat-y;
+.featured-wrapper {background: #6A7A86 url(/jobs/images/featured_background.png) repeat-y;
                    color: #DCE0E4;
                    width: 100%;
                    margin-bottom: 50px;}
@@ -286,7 +301,7 @@ p#intro {font-size: 24px;
 
 .featured-top {width: 240px;
                height: 18px;
-               background: #6A7A86 url(images/featured_top.png) no-repeat;
+               background: #6A7A86 url(/jobs/images/featured_top.png) no-repeat;
                color: #DCE0E4;}
 
 /* End Featured Services CSS */
