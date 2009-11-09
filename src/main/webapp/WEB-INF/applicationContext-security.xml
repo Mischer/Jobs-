@@ -20,12 +20,9 @@
 		<form-login login-page="/page/login.jsf" default-target-url="/page/main.jsf"/>
 	</http>
 	
-	<authentication-provider>
-		<user-service>
-			<user name="admin" password="admin" authorities="ROLE_USER" />
-			<user name="test" password="test" authorities="ROLE_USER" />
-		</user-service>
-	</authentication-provider>
-
+	<authentication-provider user-service-ref="loginService" />
+	
+	<bean:bean id="loginService" class="org.jobs.web.LoginService" />
+	
 	<bean:bean id="loggerListener" class="org.springframework.security.event.authentication.LoggerListener" />
 </bean:beans>
