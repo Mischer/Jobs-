@@ -7,20 +7,25 @@
 	</global-method-security>
 
 	<http auto-config="true">
-		<port-mappings>
+		<!-- port-mappings>
 			<port-mapping http="8080" https="8443" />
-		</port-mappings>
+		</port-mappings-->
 		<concurrent-session-control max-sessions="1" />
-		<intercept-url pattern="/ws/**" filters="none" />
-		<intercept-url pattern="/css/**" filters="none" />
-		<intercept-url pattern="/images/**" filters="none" />
-		<intercept-url pattern="/page/*.*" filters="none" />
-		<intercept-url pattern="/page/main.jsf" access="ROLE_USER" />
-		<intercept-url pattern="/**" access="ROLE_USER" />
-		<form-login login-page="/page/login.jsf" default-target-url="/page/main.jsf"/>
+		
+		<intercept-url pattern="/ws/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/css/**" access="IS_AUTHENTICATED_ANONYMOUSLY"  />
+		<intercept-url pattern="/images/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/page/*.*"  access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		
+		<intercept-url pattern="/page/**" access="ROLE_USER" />
+		<remember-me user-service-ref="loginService" />
+		<anonymous/>
+		<form-login login-page="/page/login.jsf" login-processing-url="/j_spring_security_check" default-target-url="/page/main.jsf"/>
+		<logout /> 
 	</http>
 	
-	<authentication-provider user-service-ref="loginService" />
+	<authentication-provider user-service-ref="loginService">
+	</authentication-provider>
 	
 	<bean:bean id="loginService" class="org.jobs.web.LoginService" />
 	

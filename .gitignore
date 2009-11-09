@@ -5,3 +5,4 @@ bin/*
 nb-configuration.xml
 .project
 .classpath
+.springBeans

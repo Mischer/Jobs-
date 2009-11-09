@@ -18,13 +18,11 @@ public class LoginPhase implements PhaseListener {
 	public void beforePhase(PhaseEvent arg0) {
 		Exception e = (Exception) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get(
 		        AbstractProcessingFilter.SPRING_SECURITY_LAST_EXCEPTION_KEY);
-
 		if (e instanceof BadCredentialsException) {
 			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put(AbstractProcessingFilter.SPRING_SECURITY_LAST_EXCEPTION_KEY, null);
-			log.error("--------------------- error auth");
+			log.error("Error auth");
+			//FacesUtils.addErrorMessage("Username or password not valid.");
 		}
-		FacesContext context = FacesContext.getCurrentInstance();
-		context.getExternalContext().getRemoteUser();
 	}
 
 	@Override

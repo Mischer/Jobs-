@@ -10,14 +10,14 @@
 	            <a href="#" title="">
 	            	<img style="width: 281px; height: 31px;" src="/jobs/images/logo.png" alt="Your Site Name" />
 	            </a>
-	            <form jsfc="h:form">
+	            <form jsfc="h:form" id="loginForm" prependId="false">
 	            	
 	                <h:panelGrid columns="3" cellpadding="2">
 	                    <label for="j_username" jsfc="h:outputText">#{msgs.login_login}</label>
-	                    <input type="text" id="j_username" jsfc="h:inputText" value="#{LoginBean.login}" required="true"/>
+	                    <input type="text" id="j_username" jsfc="h:inputText" required="true"/>
 		            	<h:message for="j_username" />
 	                    <label for="j_password" jsfc="h:outputLabel">#{msgs.login_password}</label>
-	                    <input type="password" required="true" jsfc="h:inputSecret" id="j_password" value="#{LoginBean.pass}" />
+	                    <input type="password" required="true" jsfc="h:inputSecret" id="j_password" />
 	                    <h:message for="j_password" />
 	                </h:panelGrid>
 	                <h:commandButton style="float: left;" action="#{LoginBean.submitAction}" value="#{msgs.login_enter}" />
