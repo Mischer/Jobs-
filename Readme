@@ -1,5 +1,5 @@
 Tomcat endorsed libraries.
-run Tomcat width VM argumernt -Djava.endorsed.dirs="d:\tomcat\endorsed" and copy next jar in folder d:\tomcat\endorsed
+run Tomcat with VM argument -Djava.endorsed.dirs="d:\tomcat\endorsed" and copy next jar in folder d:\tomcat\endorsed
 
 	aspectjrt-1.6.6.jar
 	jaxb-api-2.1.jar

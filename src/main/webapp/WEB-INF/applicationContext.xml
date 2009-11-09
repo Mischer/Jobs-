@@ -107,10 +107,10 @@
 
 	<!-- CXF client -->
     <jaxws:client id="usersWSClient" serviceClass="org.jobs.ws.bean.UsersManager"
-                address="http://localhost:8080/jobs/ws/users" />
+                address="http://localhost:9090/jobs/ws/users" />
 
     <jaxws:client id="projectsWSClient" serviceClass="org.jobs.ws.bean.ProjectsManager"
-		address="http://localhost:8080/jobs/ws/projects" /><!--
+		address="http://localhost:9090/jobs/ws/projects" /><!--
 		
 	<import resource="applicationContext-security.xml"/>
 
