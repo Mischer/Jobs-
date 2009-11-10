@@ -16,22 +16,23 @@ import org.jobs.persistence.dao.ProjectDao;
  * 
  * @author vit
  */
+@Deprecated
 public class ProjectDaoImpl extends DaoImpl<Project> implements ProjectDao {
 
-    public ProjectDaoImpl() {
-    }
+	public ProjectDaoImpl() {
+	}
 
-    @Override
-    public Project get(Long id) {
-        return get(Project.class, id);
-    }
+	@Override
+	public Project get(Long id) {
+		return get(Project.class, id);
+	}
 
-    @Override
-    public List<Project> getProjectByUser(User user) {
-        Project project = new Project();
-        project.getUser().add(user);
-        DetachedCriteria criteria = DetachedCriteria.forClass(Project.class);
-        criteria.add(Example.create(project));
-        return getHibernateTemplate().findByCriteria(criteria);
-    }
+	@Override
+	public List<Project> getProjectByUser(User user) {
+		Project project = new Project();
+		// project.getUser().add(user);
+		DetachedCriteria criteria = DetachedCriteria.forClass(Project.class);
+		criteria.add(Example.create(project));
+		return getHibernateTemplate().findByCriteria(criteria);
+	}
 }

@@ -5,10 +5,10 @@ import java.util.List;
 import org.jobs.persistence.bean.Log;
 import org.jobs.persistence.bean.Task;
 
-//@Transactional(readOnly = false)
+@Deprecated
 public interface LogDao extends Dao<Log> {
 
-    Log get(Long logId);
+	Log get(Long logId);
 
-    List<Log> getLogsByTask(Task task);
+	List<Log> getLogsByTask(Task task);
 }

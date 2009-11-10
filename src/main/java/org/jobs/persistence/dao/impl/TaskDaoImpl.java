@@ -14,18 +14,19 @@ import org.jobs.persistence.dao.TaskDao;
  * 
  * @author vit
  */
+@Deprecated
 public class TaskDaoImpl extends DaoImpl<Task> implements TaskDao {
 
-    public TaskDaoImpl() {
-    }
+	public TaskDaoImpl() {
+	}
 
-    @Override
-    public Task get(long taskId) {
-        return get(Task.class, taskId);
-    }
+	@Override
+	public Task get(long taskId) {
+		return get(Task.class, taskId);
+	}
 
-    @Override
-    public List<Task> getTasksByProject(Project project) {
-        return getHibernateTemplate().find("from Task ts where ts.project = ?", project);
-    }
+	@Override
+	public List<Task> getTasksByProject(Project project) {
+		return getHibernateTemplate().find("from Task ts where ts.project = ?", project);
+	}
 }

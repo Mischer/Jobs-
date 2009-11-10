@@ -6,18 +6,19 @@ import org.jobs.persistence.bean.Log;
 import org.jobs.persistence.bean.Task;
 import org.jobs.persistence.dao.LogDao;
 
+@Deprecated
 public class LogDaoImpl extends DaoImpl<Log> implements LogDao {
 
-    public LogDaoImpl() {
-    }
+	public LogDaoImpl() {
+	}
 
-    @Override
-    public Log get(Long logId) {
-        return get(Log.class, logId);
-    }
+	@Override
+	public Log get(Long logId) {
+		return get(Log.class, logId);
+	}
 
-    @Override
-    public List<Log> getLogsByTask(Task task) {
-        return getHibernateTemplate().find("from Log ls where ls.task = ?", task);
-    }
+	@Override
+	public List<Log> getLogsByTask(Task task) {
+		return getHibernateTemplate().find("from Log ls where ls.task = ?", task);
+	}
 }

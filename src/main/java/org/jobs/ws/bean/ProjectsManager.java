@@ -12,36 +12,37 @@ import org.springframework.transaction.annotation.Transactional;
 
 @WebService
 @Transactional(readOnly = true)
+@Deprecated
 public interface ProjectsManager {
 
-    List<Project> getProjetsByUserId(long userId);
+	List<Project> getProjetsByUserId(long userId);
 
-    @Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
-    Project creteProject(Project project);
+	@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
+	Project creteProject(Project project);
 
-    List<Task> getTasksByProjectId(long projectId);
+	List<Task> getTasksByProjectId(long projectId);
 
-    @Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
-    Task createTask(Task task);
+	@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
+	Task createTask(Task task);
 
-    List<Log> getLogsByTaskId(long taskId);
+	List<Log> getLogsByTaskId(long taskId);
 
-    @Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
-    Log createLog(Log log);
+	@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
+	Log createLog(Log log);
 
-    @Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
-    Project assignProject(Long projectId, Long userId);
+	@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
+	Project assignProject(Long projectId, Long userId);
 
-    Project getProjetc(Long projectId);
+	Project getProjetc(Long projectId);
 
-    Task getTask(Long taskId);
+	Task getTask(Long taskId);
 
-    @Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
-    Task assignTask(Long id, Long id0);
+	@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
+	Task assignTask(Long id, Long id0);
 
-    Log getLog(Long logId);
+	Log getLog(Long logId);
 
-    @Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
-    Log assignLog(Long id, Long id0);
-    
+	@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
+	Log assignLog(Long id, Long id0);
+
 }

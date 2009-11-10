@@ -4,10 +4,10 @@ import java.util.List;
 
 import org.jobs.persistence.bean.Group;
 
-//@Transactional(readOnly=false)
+@Deprecated
 public interface GroupDao extends Dao<Group> {
 
-    List<Group> getAll();
+	List<Group> getAll();
 
-    Group get(Long id);
+	Group get(Long id);
 }

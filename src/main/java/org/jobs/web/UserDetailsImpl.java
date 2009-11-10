@@ -4,6 +4,7 @@ import org.springframework.security.GrantedAuthority;
 import org.springframework.security.GrantedAuthorityImpl;
 import org.springframework.security.userdetails.UserDetails;
 
+@Deprecated
 public class UserDetailsImpl implements UserDetails {
 	private static final long serialVersionUID = 1L;
 

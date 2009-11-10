@@ -13,18 +13,19 @@ import org.jobs.persistence.dao.GroupDao;
  * 
  * @author vit
  */
+@Deprecated
 public class GroupDaoImpl extends DaoImpl<Group> implements GroupDao {
 
-    public GroupDaoImpl() {
-    }
+	public GroupDaoImpl() {
+	}
 
-    @SuppressWarnings("unchecked")
-    public List<Group> getAll() {
-        return getHibernateTemplate().find("from Group");
-    }
+	@SuppressWarnings("unchecked")
+	public List<Group> getAll() {
+		return getHibernateTemplate().find("from Group");
+	}
 
-    @Override
-    public Group get(Long id) {
-        return get(Group.class, id);
-    }
+	@Override
+	public Group get(Long id) {
+		return get(Group.class, id);
+	}
 }

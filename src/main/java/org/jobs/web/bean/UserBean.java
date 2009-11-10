@@ -44,7 +44,7 @@ public class UserBean {
 	}
 
 	public String save(){
-		user.setGroup(userManager.getGroup(group));
+		//user.setGroup(userManager.getGroup(group));
 		if (user.getId()!=null){
 			if(log.isDebugEnabled()){
 				log.debug(String.format("Update user with id = %s ", user.getId()));
@@ -52,7 +52,7 @@ public class UserBean {
 			userManager.updateUser(user);
 		}else{
 			if(log.isDebugEnabled()){
-				log.debug(String.format("Save user with login = %s ", user.getLogin()));
+				//log.debug(String.format("Save user with login = %s ", user.getLogin()));
 			}
 			userManager.createUser(user);
 		}
@@ -64,9 +64,9 @@ public class UserBean {
 			log.debug("Get all group.");
 		}
 		List<SelectItem> items = new ArrayList<SelectItem>();
-		for (Group group : userManager.getGroupAll()) {
-			items.add(new SelectItem(group.getId(), group.getName(), group.getDescription()));
-		}
+//		for (Group group : userManager.getGroupAll()) {
+//			items.add(new SelectItem(group.getId(), group.getName(), group.getDescription()));
+//		}
 		return items;
 	}
 

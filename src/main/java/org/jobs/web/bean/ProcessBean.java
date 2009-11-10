@@ -2,6 +2,7 @@ package org.jobs.web.bean;
 
 import org.apache.log4j.Logger;
 
+@Deprecated
 public class ProcessBean {
 	
 	private static Logger log = Logger.getLogger(ProcessBean.class);

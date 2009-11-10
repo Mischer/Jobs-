@@ -8,6 +8,7 @@ import org.jobs.web.FacesUtils;
 import org.jobs.ws.bean.ProjectsManager;
 import org.jobs.ws.bean.UsersManager;
 
+@Deprecated
 public class ProjectBean {
 	
 	private static Logger log = Logger.getLogger(UserBean.class);
@@ -23,7 +24,7 @@ public class ProjectBean {
     }
 	
 	public String save(){
-		project.getUser().add(usersManager.getUser(new Long(1)));
+		//project.getUser().add(usersManager.getUser(new Long(1)));
 		Project projectSave = projectsManager.creteProject(project);
 		if(log.isDebugEnabled()){
 			log.debug(String.format("Save project with id = %s .", projectSave.getId()));

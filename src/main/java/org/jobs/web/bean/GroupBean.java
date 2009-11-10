@@ -10,6 +10,7 @@ import org.jobs.persistence.bean.Group;
 import org.jobs.web.FacesUtils;
 import org.jobs.ws.bean.UsersManager;
 
+@Deprecated
 public class GroupBean {
 
 	private static Logger log = Logger.getLogger(GroupBean.class);
@@ -24,9 +25,9 @@ public class GroupBean {
 			log.debug("Get all group.");
 		}
 		List<SelectItem> items = new ArrayList<SelectItem>();
-		for (Group group : userManager.getGroupAll()) {
-			items.add(new SelectItem(group, group.getName(), group.getDescription()));
-		}
+//		for (Group group : userManager.getGroupAll()) {
+//			items.add(new SelectItem(group, group.getName(), group.getDescription()));
+//		}
 		return items;
 	}
 

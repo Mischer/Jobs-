@@ -30,6 +30,13 @@
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
 
+    <bean id="roleDao" class="org.jobs.persistence.dao.impl.RoleDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="userDao" class="org.jobs.persistence.dao.impl.UserDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean><!--
+
     <bean id="groupDao" class="org.jobs.persistence.dao.impl.GroupDaoImpl">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
@@ -42,16 +49,13 @@
     <bean id="taskDao" class="org.jobs.persistence.dao.impl.TaskDaoImpl">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
-    <bean id="userDao" class="org.jobs.persistence.dao.impl.UserDaoImpl">
-        <property name="sessionFactory" ref="sessionFactory" />
-    </bean>
 
-	<!-- WS Bean -->
+	--><!-- WS Bean -->
 
     <bean id="usersManager" class="org.jobs.ws.bean.UsersManagerBean">
-        <property name="groupDao" ref="groupDao" />
+        <property name="roleDao" ref="roleDao" />
         <property name="userDao" ref="userDao" />
-    </bean>
+    </bean><!--
 
     <bean id="projectsManager" class="org.jobs.ws.bean.ProjectsManagerBean">
         <property name="logDao" ref="logDao" />
@@ -59,58 +63,5 @@
         <property name="taskDao" ref="taskDao" />
         <property name="userDao" ref="userDao" />
     </bean>
-<!--
-    <bean id="usersManagerTarget" class="org.jobs.ws.bean.UsersManagerBean">
-        <property name="groupDao" ref="groupDao" />
-        <property name="userDao" ref="userDao" />
-    </bean>
-
-    <bean id="projectsManagerTarget" class="org.jobs.ws.bean.ProjectsManagerBean">
-        <property name="logDao" ref="logDao" />
-        <property name="projectDao" ref="projectDao" />
-        <property name="taskDao" ref="taskDao" />
-    </bean>
-
-    <bean id="usersManager" parent="abstractManager">
-        <property name="target" ref="usersManagerTarget" />
-    </bean>
-
-    <bean id="projectsManager" parent="abstractManager">
-        <property name="target" ref="projectsManagerTarget" />
-    </bean>
-
-    <bean id="abstractManager" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
-		abstract="true">
-        <property name="transactionManager" ref="transactionManager" />
-        <property name="transactionAttributes">
-            <props>
-                <prop key="create*">PROPAGATION_REQUIRED</prop>
-                <prop key="save*">PROPAGATION_REQUIRED</prop>
-                <prop key="remove*">PROPAGATION_REQUIRED</prop>
-                <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
-            </props>
-        </property>
-    </bean>
     -->
-
-	<!-- CXF server -->
-<!--
-    <import resource="classpath:META-INF/cxf/cxf.xml" />
-    <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
-    <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
-
-    <jaxws:endpoint id="usersWS" implementor="#usersManager" implementorClass="org.jobs.ws.bean.UsersManagerBean"
-		address="/users" />
-
-    <jaxws:endpoint id="projectsWS" implementor="#projectsManager" implementorClass="org.jobs.ws.bean.ProjectsManagerBean"
-		address="/projects" />
--->
-        <!-- CXF client -->
-<!--
-    <jaxws:client id="usersWSClient" serviceClass="org.jobs.ws.bean.UsersManager"
-                address="http://localhost:8084/jobs/ws/users" />
-
-    <jaxws:client id="projectsWSClient" serviceClass="org.jobs.ws.bean.ProjectsManager"
-		address="http://localhost:8084/jobs/ws/projects" />
--->
 </beans>

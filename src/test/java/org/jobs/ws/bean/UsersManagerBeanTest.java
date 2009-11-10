@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.jobs.JobsTest;
 import org.jobs.persistence.bean.Group;
+import org.jobs.persistence.bean.Role;
 import org.jobs.persistence.bean.User;
 import org.junit.Assert;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class UsersManagerBeanTest {
@@ -21,20 +23,17 @@ public class UsersManagerBeanTest {
 	}
 
 	@Test
-	public void testCreateGroup() {
-		Group group = new Group();
-		group.setName("Test Group");
-		idGroup = usersManager.createGroup(group).getId();
-		Assert.assertNotNull(idGroup);
+	public void testCreateUser() {
+		Role role = new Role();
+		role.setAuthority("ROLE_USER");
 	}
 
 	@Test
 	public void testCreateUser() {
 		User user = new User();
-		user.setLogin("test");
-		user.setPass("test");
-		user.setName("UserName");
-		user.setGroup(usersManager.getGroup(idGroup));
+		user.setUsername("test");
+		user.setPassword("test");
+		user.getRoles().add(new Role("ROLE_USER"));
 		idUser = usersManager.createUser(user).getId();
 		Assert.assertNotNull(idUser);
 	}
@@ -51,10 +50,10 @@ public class UsersManagerBeanTest {
 		Assert.assertNotNull(user);
 	}
 
-	@Test
+	@Ignore
 	public void testGetGroup() {
-		Group group = usersManager.getGroup(idGroup);
-		Assert.assertNotNull(group);
+		// Group group = usersManager.getGroup(idGroup);
+		//Assert.assertNotNull(group);
 	}
 
 	@Test
@@ -63,9 +62,9 @@ public class UsersManagerBeanTest {
 		Assert.assertFalse(list.isEmpty());
 	}
 
-	@Test
+	@Ignore
 	public void testGetGroupAll() {
-		List<Group> list = usersManager.getGroupAll();
-		Assert.assertFalse(list.isEmpty());
+		// List<Group> list = usersManager.getGroupAll();
+		//Assert.assertFalse(list.isEmpty());
 	}
 }

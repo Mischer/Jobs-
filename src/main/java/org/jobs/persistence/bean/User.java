@@ -5,7 +5,6 @@
 
 package org.jobs.persistence.bean;
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,14 +15,14 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlTransient;
+
+import org.springframework.security.GrantedAuthority;
+import org.springframework.security.userdetails.UserDetails;
 
 /**
  * 
@@ -32,24 +31,25 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "users")
 @XmlAccessorType(XmlAccessType.PROPERTY)
-public class User implements Serializable {
+public class User implements UserDetails {
 	private static final long serialVersionUID = 1L;
-        
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
-	@Column(name = "name", unique = false)
-	private String name;
-	@Column(name = "login", unique = true)
-	private String login;
-	@Column(name = "pass")
-	private String pass;
-	@ManyToOne(optional = false, fetch = FetchType.EAGER)
-	@JoinColumn(name = "GROUP_ID")
-	private Group group;
-	@ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinTable(name = "project_user")
-	private Set<Project> projects = new HashSet<Project>();
+	@Column(name = "username", unique = false, nullable = false)
+	private String username;
+	@Column(name = "pass", nullable = false)
+	private String password;
+	@Column(name = "enabled")
+	private boolean enabled;
+	@Column(name = "accountNonExpired")
+	private boolean accountNonExpired;
+	@Column(name = "credentialsNonExpired")
+	private boolean credentialsNonExpired;
+
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	private Set<Role> roles = new HashSet<Role>();
 
 	public User() {
 	}
@@ -62,46 +62,69 @@ public class User implements Serializable {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	@Override
+	public String getUsername() {
+		return username;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public String getPass() {
-		return pass;
+	@Override
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPass(String pass) {
-		this.pass = pass;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
+	@Override
+	public boolean isEnabled() {
+		return enabled;
 	}
 
-	public String getLogin() {
-		return login;
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 
-	@XmlTransient
-	public Group getGroup() {
-		return group;
+	@Override
+	public boolean isAccountNonExpired() {
+		return accountNonExpired;
 	}
 
-	public void setGroup(Group group) {
-		this.group = group;
+	public void setAccountNonExpired(boolean accountNonExpired) {
+		this.accountNonExpired = accountNonExpired;
 	}
 
-	public void setProjects(Set<Project> projects) {
-		this.projects = projects;
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return credentialsNonExpired;
 	}
 
-	@XmlTransient
-	public Set<Project> getProjects() {
-		return projects;
+	public void setCredentialsNonExpired(boolean credentialsNonExpired) {
+		this.credentialsNonExpired = credentialsNonExpired;
+	}
+
+	public Set<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
+
+	@Override
+	@Transient
+	public GrantedAuthority[] getAuthorities() {
+		return roles.toArray(new Role[roles.size()]);
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return true;
 	}
 
 	@Override

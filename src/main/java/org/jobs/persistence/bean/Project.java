@@ -25,6 +25,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "projects")
+@Deprecated
 public class Project implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -39,9 +40,9 @@ public class Project implements Serializable {
     private String status;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "project", fetch = FetchType.LAZY)
     private List<Task> tasks = new ArrayList<Task>();
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "projects", fetch = FetchType.EAGER)
-    //@IndexColumn(name="INDEX")
-    private List<User> user = new ArrayList<User>();
+   // @ManyToMany(cascade = CascadeType.ALL, mappedBy = "projects", fetch = FetchType.EAGER)
+   
+    //private List<User> user = new ArrayList<User>();
 
     public Project() {
     }
@@ -78,13 +79,13 @@ public class Project implements Serializable {
         this.title = title;
     }
 
-    public List<User> getUser() {
-        return user;
-    }
-
-    public void setUser(List<User> user) {
-        this.user = user;
-    }
+//    public List<User> getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(List<User> user) {
+//        this.user = user;
+//    }
 
     public void setTasks(List<Task> tasks) {
         this.tasks = tasks;

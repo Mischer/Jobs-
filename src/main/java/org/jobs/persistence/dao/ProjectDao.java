@@ -5,10 +5,10 @@ import java.util.List;
 import org.jobs.persistence.bean.Project;
 import org.jobs.persistence.bean.User;
 
-//@Transactional(readOnly=false)
+@Deprecated
 public interface ProjectDao extends Dao<Project> {
 
-    Project get(Long id);
+	Project get(Long id);
 
-    List<Project> getProjectByUser(User user);
+	List<Project> getProjectByUser(User user);
 }
