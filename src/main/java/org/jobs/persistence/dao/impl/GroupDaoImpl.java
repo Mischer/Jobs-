@@ -9,11 +9,6 @@ import java.util.List;
 import org.jobs.persistence.bean.Group;
 import org.jobs.persistence.dao.GroupDao;
 
-/**
- * 
- * @author vit
- */
-@Deprecated
 public class GroupDaoImpl extends DaoImpl<Group> implements GroupDao {
 
 	public GroupDaoImpl() {

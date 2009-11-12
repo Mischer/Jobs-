@@ -11,16 +11,18 @@
                 http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
 		http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
 
+    <import resource="classpath:META-INF/cxf/cxf.xml" />
+    <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
+    <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+
     <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
         <property name="configurationClass" value="org.hibernate.cfg.AnnotationConfiguration" />
         <property name="configLocation" value="classpath:hibernate.cfg.xml" />
     </bean>
 
-
     <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
-
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
@@ -35,25 +37,16 @@
     </bean>
     <bean id="userDao" class="org.jobs.persistence.dao.impl.UserDaoImpl">
         <property name="sessionFactory" ref="sessionFactory" />
-    </bean><!--
-
+    </bean>
     <bean id="groupDao" class="org.jobs.persistence.dao.impl.GroupDaoImpl">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
-    <bean id="logDao" class="org.jobs.persistence.dao.impl.LogDaoImpl">
-        <property name="sessionFactory" ref="sessionFactory" />
-    </bean>
-    <bean id="projectDao" class="org.jobs.persistence.dao.impl.ProjectDaoImpl">
-        <property name="sessionFactory" ref="sessionFactory" />
-    </bean>
-    <bean id="taskDao" class="org.jobs.persistence.dao.impl.TaskDaoImpl">
-        <property name="sessionFactory" ref="sessionFactory" />
-    </bean>
-
-	--><!-- WS Bean -->
+    
+	<!-- WS Bean -->
 
     <bean id="usersManager" class="org.jobs.ws.bean.UsersManagerBean">
         <property name="roleDao" ref="roleDao" />
+        <property name="groupDao" ref="groupDao" />
         <property name="userDao" ref="userDao" />
     </bean><!--
 
@@ -99,23 +92,22 @@
 
 	<!-- CXF server -->
 
-    <import resource="classpath:META-INF/cxf/cxf.xml" />
-    <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
-    <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
-
     <jaxws:endpoint id="usersWS" implementor="#usersManager" implementorClass="org.jobs.ws.bean.UsersManagerBean"
-		address="/users" /><!--
+		address="/users" />
 
-    <jaxws:endpoint id="projectsWS" implementor="#projectsManager" implementorClass="org.jobs.ws.bean.ProjectsManagerBean"
-		address="/projects" />
-
-	--><!-- CXF client -->
+	<!-- CXF client -->
+	
     <jaxws:client id="usersWSClient" serviceClass="org.jobs.ws.bean.UsersManager"
-                address="http://localhost:9090/jobs/ws/users" /><!--
+                address="http://localhost:9090/jobs/ws/users" />
 
-    <jaxws:client id="projectsWSClient" serviceClass="org.jobs.ws.bean.ProjectsManager"
-		address="http://localhost:9090/jobs/ws/projects" />
-		
-	<import resource="applicationContext-security.xml"/>
-
---></beans>
+	<bean id="loginBean" class="org.jobs.web.bean.LoginBean"/>
+	
+	<bean id="sessionBean" class="org.jobs.web.bean.SessionBean" scope="session" />
+	
+	<bean id="settingBean" class="org.jobs.web.bean.SettingBean" scope="session" />
+	
+	<bean id="userBean" class="org.jobs.web.bean.UserBean" scope="request" />
+	
+	<bean id="groupBean" class="org.jobs.web.bean.GroupBean" scope="request"/>
+	
+</beans>

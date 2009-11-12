@@ -7,7 +7,7 @@
 
 	<ui:define name="content">
 		<h:form>
-			<h:dataTable value="#{UserBean.listUser}" var="list">
+			<h:dataTable value="#{userBean.listUser}" var="list">
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Login" />
@@ -27,13 +27,13 @@
 						<h:outputText value="Action" />
 					</f:facet>
 					<h:panelGrid columns="3" cellpadding="3" cellspacing="2">
-						<h:commandLink action="#{UserBean.view}" value="View">
+						<h:commandLink action="#{userBean.view}" value="View">
 							<f:param name="id" value="#{list.id}" />
 						</h:commandLink>
-						<h:commandLink action="#{UserBean.edit}" value="Edit">
+						<h:commandLink action="#{userBean.edit}" value="Edit">
 							<f:param name="id" value="#{list.id}" />
 						</h:commandLink>
-						<h:commandLink action="#{UserBean.delete}" value="Delete">
+						<h:commandLink action="#{userBean.delete}" value="Delete">
 							<f:param name="id" value="#{list.id}" />
 						</h:commandLink>
 					</h:panelGrid>

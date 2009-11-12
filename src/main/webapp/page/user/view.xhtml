@@ -10,16 +10,16 @@
 			<h:form>
 			<h:panelGrid  columns="2" headerClass="header_table">
 			<label jsfc="h:outputLabel" >User id</label>
-			<label jsfc="h:outputLabel" >#{UserBean.user.id}</label>
+			<label jsfc="h:outputLabel" >#{userBean.user.id}</label>
 			<label jsfc="h:outputLabel" >User name</label>
-			<label jsfc="h:outputLabel" >#{UserBean.user.name}</label>
+			<label jsfc="h:outputLabel" >#{userBean.user.name}</label>
 			<label jsfc="h:outputLabel" >User login</label>
-			<label jsfc="h:outputLabel" >#{UserBean.user.login}</label>
+			<label jsfc="h:outputLabel" >#{userBean.user.login}</label>
 			<label jsfc="h:outputLabel" >User group</label>
-			<label jsfc="h:outputLabel" >#{UserBean.user.group.name}</label>
+			<label jsfc="h:outputLabel" >#{userBean.user.group.name}</label>
 
 			<label jsfc="h:outputLabel" >User projects</label>
-			<h:selectManyMenu value="#{UserBean.user.projects}" />
+			<h:selectManyMenu value="#{userBean.user.projects}" />
 			
 			</h:panelGrid> 
 			</h:form>

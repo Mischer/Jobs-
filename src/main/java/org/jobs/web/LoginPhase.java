@@ -15,7 +15,7 @@ public class LoginPhase implements PhaseListener {
 	private static Logger log = Logger.getLogger(LoginPhase.class);
 
 	@Override
-	public void beforePhase(PhaseEvent arg0) {
+	public void beforePhase(PhaseEvent event) {
 		Exception e = (Exception) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get(
 		        AbstractProcessingFilter.SPRING_SECURITY_LAST_EXCEPTION_KEY);
 		if (e instanceof BadCredentialsException) {
@@ -26,7 +26,7 @@ public class LoginPhase implements PhaseListener {
 	}
 
 	@Override
-	public void afterPhase(PhaseEvent arg0) {
+	public void afterPhase(PhaseEvent event) {
 
 	}
 

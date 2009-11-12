@@ -1,10 +1,11 @@
-package org.jobs.web;
+package org.jobs.web.bean;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import javax.annotation.PostConstruct;
 import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
@@ -14,6 +15,17 @@ public class SessionBean implements Serializable{
 	
     private static final long serialVersionUID = 1L;
     private String currentLocale;
+    
+    public SessionBean() {
+
+    }
+    
+    @PostConstruct
+    public void initLocale(){
+		FacesContext context = FacesContext.getCurrentInstance();
+		UIViewRoot viewRoot = context.getViewRoot();
+		setCurrentLocale(viewRoot.getLocale().getLanguage());		
+    }
     
 	public String getCurrentLocale() {
     	return currentLocale;

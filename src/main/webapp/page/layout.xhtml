@@ -12,8 +12,8 @@
     </head>
     <body>
     	<h:form>
-    		<h:selectOneMenu value="#{SessionBean.currentLocale}" valueChangeListener="#{SessionBean.changeLocaleListener}" immediate="true" onchange="submit()">
-    			<f:selectItems value="#{SessionBean.locale}"/>
+    		<h:selectOneMenu value="#{sessionBean.currentLocale}" valueChangeListener="#{sessionBean.changeLocaleListener}" immediate="true" onchange="submit()">
+    			<f:selectItems value="#{sessionBean.locale}"/>
     		</h:selectOneMenu>
     	</h:form>
     	<ui:insert name="application" >
@@ -24,10 +24,12 @@
                 </div><!--End logo-->
                 <!--For the search feature to work, you will of course need to do some server side scripting.-->
                 <div id="setting">
-                	<!-- 
-                	<h:commandButton value="Logout" />|<h:commandButton value="Setting" />
-                	 --> 
-                	<a href="#" >Logout</a>|<a href="#" >Setting</a>
+                	 <h:form>
+	                	 <h:commandLink action="#{loginBean.logoutAction}" value="#{msgs.logout}" >
+	                	 	<f:param name="logout" value="1"/>
+	                	 </h:commandLink>|
+	                	 <h:commandLink action="#{settingBean.openAction}" value="#{msgs.setting}" />
+                	 </h:form>
                 </div>
                 <form id="search" method="get" action="">
                     <div>

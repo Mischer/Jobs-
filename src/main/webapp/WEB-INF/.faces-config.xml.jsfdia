@@ -8,6 +8,8 @@
   <PROCESS-ITEM ID="rules:*:0" NAME="item" PATH="*" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="fails::#page#error.jsp" NAME="output"
     PATH="/page/error.jsp" TARGET="rules:#page#error.jsp" TITLE="fails" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="login::#page#login.jsp" NAME="output1"
+    PATH="/page/login.jsp" TARGET="rules:#page#login.jsp" TITLE="login" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="home::#page#main.jsp" NAME="output2"
     PATH="/page/main.jsp" TARGET="rules:#page#main.jsp" TITLE="home" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="user.home::#page#user#index.jsp"
@@ -20,14 +22,11 @@
     NAME="output5" PATH="/page/user/edit.jsp"
     TARGET="rules:#page#user#edit.jsp" TITLE="user.edit" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="user.list::#page#user#list.jsp"
-    NAME="output1" PATH="/page/user/list.jsp"
+    NAME="output6" PATH="/page/user/list.jsp"
     TARGET="rules:#page#user#list.jsp" TITLE="user.list" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="group.home::#page#group#index.jsp"
-    NAME="output6" PATH="/page/group/index.jsp"
+    NAME="output7" PATH="/page/group/index.jsp"
     TARGET="rules:#page#group#index.jsp" TITLE="group.home" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="group.view::#page#group#view.jsp"
-    NAME="output7" PATH="/page/group/view.jsp"
-    TARGET="rules:#page#group#view.jsp" TITLE="group.view" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="group.edit::#page#group#edit.jsp"
     NAME="output8" PATH="/page/group/edit.jsp"
     TARGET="rules:#page#group#edit.jsp" TITLE="group.edit" model-entity="JSFProcessItemOutput"/>
@@ -92,4 +91,6 @@
   PATH="/page/task/index.jsp" SHAPE="304,1249,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#page#project#index.jsp"
   PATH="/page/project/index.jsp" SHAPE="304,1361,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#page#login.jsp" PATH="/page/login.jsp"
+  SHAPE="304,913,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

@@ -13,13 +13,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- * 
- * @author vit
- */
 @Entity
 @Table(name = "groups")
-@Deprecated
 public class Group implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -30,10 +25,6 @@ public class Group implements Serializable {
 	private String name;
 	@Column(name = "description")
 	private String description;
-
-	// @OneToMany(cascade = CascadeType.ALL, mappedBy = "group", fetch =
-	// FetchType.EAGER)
-	// private Set<User> users = new HashSet<User>();
 
 	public Group() {
 	}
@@ -61,14 +52,6 @@ public class Group implements Serializable {
 	public String getDescription() {
 		return description;
 	}
-
-	// public Set<User> getUsers() {
-	// return users;
-	// }
-
-	// public void setUsers(Set<User> users) {
-	// this.users = users;
-	// }
 
 	@Override
 	public int hashCode() {

@@ -2,75 +2,55 @@
 <faces-config version="1.2" xmlns="http://java.sun.com/xml/ns/javaee"
  xmlns:xi="http://www.w3.org/2001/XInclude"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd">
- 
+
  <lifecycle>
 	<phase-listener>org.jobs.web.LoginPhase</phase-listener>
- </lifecycle>
+ </lifecycle> 
 
  <application>
-  <variable-resolver>org.springframework.web.jsf.DelegatingVariableResolver</variable-resolver>
+	<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
   <view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
 	<locale-config>
   		<default-locale>en</default-locale>
 	  	<supported-locale>en</supported-locale>
   		<supported-locale>ru</supported-locale>
 	</locale-config>
-  </application>
- <application>
  	<resource-bundle>
  		<base-name>org.jobs.web.messages</base-name>
  		<var>msgs</var>
  	</resource-bundle>
- </application>
- 
+  </application>
+ <!-- 
  <managed-bean>
-  <managed-bean-name>SessionBean</managed-bean-name>
-  <managed-bean-class>org.jobs.web.SessionBean</managed-bean-class>
+  <managed-bean-name>sessionBean</managed-bean-name>
+  <managed-bean-class>org.jobs.web.bean.SessionBean</managed-bean-class>
   <managed-bean-scope>session</managed-bean-scope>
  </managed-bean>
 
  <managed-bean>
-  <managed-bean-name>LoginBean</managed-bean-name>
-  <managed-bean-class>org.jobs.web.bean.LoginBean</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
- </managed-bean>
- 
- <managed-bean>
-  <managed-bean-name>ProcessBean</managed-bean-name>
-  <managed-bean-class>org.jobs.web.bean.ProcessBean</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
- </managed-bean>
-
- <managed-bean>
-  <managed-bean-name>UserBean</managed-bean-name>
+  <managed-bean-name>userBean</managed-bean-name>
   <managed-bean-class>org.jobs.web.bean.UserBean</managed-bean-class>
   <managed-bean-scope>request</managed-bean-scope>
  </managed-bean>
  
   <managed-bean>
-  <managed-bean-name>GroupBean</managed-bean-name>
+  <managed-bean-name>groupBean</managed-bean-name>
   <managed-bean-class>org.jobs.web.bean.GroupBean</managed-bean-class>
   <managed-bean-scope>request</managed-bean-scope>
  </managed-bean>
-
-  <managed-bean>
-  <managed-bean-name>TaskBean</managed-bean-name>
-  <managed-bean-class>org.jobs.web.bean.TaskBean</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
- </managed-bean>
-
-  <managed-bean>
-  <managed-bean-name>ProjectBean</managed-bean-name>
-  <managed-bean-class>org.jobs.web.bean.ProjectBean</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
- </managed-bean>
- 
+ --> 
  <navigation-rule>
   <from-view-id>*</from-view-id>
   
   <navigation-case>
    <from-outcome>fails</from-outcome>
    <to-view-id>/page/error.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  
+  <navigation-case>
+   <from-outcome>login</from-outcome>
+   <to-view-id>/page/login.jsp</to-view-id>
    <redirect/>
   </navigation-case>
 

@@ -5,23 +5,7 @@
 
 <ui:composition template="layout.xhtml">
 	<ui:define name="content">
-		<h:form>
-			<h:panelGrid columns="2" headerClass="header_table" cellpadding="4" cellspacing="4">
-				<h:outputText value="Name" />
-				<h:outputText value="Value" />
-
-				<label jsfc="h:outputLabel">Caption</label>
-				<input type="text" jsfc="h:inputText" value="#{ProjectBean.project.caption}" />
-				<label jsfc="h:outputLabel">Status</label>
-				<input type="text" jsfc="h:inputText" value="#{ProjectBean.project.status}" />
-				<label jsfc="h:outputLabel">Status</label>
-				<input type="text" jsfc="h:inputText" value="#{ProjectBean.project.title}" />
-
-			</h:panelGrid>
-
-			<input type="submit" jsfc="h:commandButton" value="Save" action="#{ProjectBean.save}" />
-
-		</h:form>
+	edit project
 	</ui:define>
 </ui:composition>
 </html>

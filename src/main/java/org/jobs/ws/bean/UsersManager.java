@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.jws.WebService;
 
+import org.jobs.persistence.bean.Role;
 import org.jobs.persistence.bean.User;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,4 +26,7 @@ public interface UsersManager {
 	User updateUser(User user);
 
 	User getUserByLogin(String login);
+
+	@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
+	Long createRole(Role role);
 }

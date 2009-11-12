@@ -9,10 +9,6 @@ import java.util.List;
 import org.jobs.persistence.bean.Role;
 import org.jobs.persistence.dao.RoleDao;
 
-/**
- * 
- * @author vit
- */
 public class RoleDaoImpl extends DaoImpl<Role> implements RoleDao {
 
 	public RoleDaoImpl() {

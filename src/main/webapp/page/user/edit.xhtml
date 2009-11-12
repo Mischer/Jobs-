@@ -12,17 +12,17 @@
 				<h:outputText value="Value" />
 
 				<label jsfc="h:outputLabel">Name</label>
-				<input type="text" jsfc="h:inputText" value="#{UserBean.user.name}" />
+				<input type="text" jsfc="h:inputText" value="#{userBean.user.name}" />
 				<label jsfc="h:outputLabel">Login</label>
-				<input type="text" jsfc="h:inputText" value="#{UserBean.user.login}" />
+				<input type="text" jsfc="h:inputText" value="#{userBean.user.login}" />
 				
 				<label jsfc="h:outputLabel">Group</label>
-				<h:selectOneMenu value="#{UserBean.group}">
-					<f:selectItems value="#{UserBean.groups}"/>
+				<h:selectOneMenu value="#{userBean.group}">
+					<f:selectItems value="#{userBean.groups}"/>
 				</h:selectOneMenu>
 			</h:panelGrid>
 			
-			<input type="submit" jsfc="h:commandButton" value="Save" action="#{UserBean.save}" />				
+			<input type="submit" jsfc="h:commandButton" value="Save" action="#{userBean.save}" />				
 
 		</h:form>
 	</ui:define>

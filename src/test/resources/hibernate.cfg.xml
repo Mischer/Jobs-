@@ -25,9 +25,6 @@
         <property name="format_sql">true</property>
 
         <mapping class="org.jobs.persistence.bean.Group" />
-        <mapping class="org.jobs.persistence.bean.Log" />
-        <mapping class="org.jobs.persistence.bean.Project" />
-        <mapping class="org.jobs.persistence.bean.Task" />
         <mapping class="org.jobs.persistence.bean.User" />
         <mapping class="org.jobs.persistence.bean.Role" />        
 		

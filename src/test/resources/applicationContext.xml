@@ -35,33 +35,17 @@
     </bean>
     <bean id="userDao" class="org.jobs.persistence.dao.impl.UserDaoImpl">
         <property name="sessionFactory" ref="sessionFactory" />
-    </bean><!--
-
+    </bean>
     <bean id="groupDao" class="org.jobs.persistence.dao.impl.GroupDaoImpl">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
-    <bean id="logDao" class="org.jobs.persistence.dao.impl.LogDaoImpl">
-        <property name="sessionFactory" ref="sessionFactory" />
-    </bean>
-    <bean id="projectDao" class="org.jobs.persistence.dao.impl.ProjectDaoImpl">
-        <property name="sessionFactory" ref="sessionFactory" />
-    </bean>
-    <bean id="taskDao" class="org.jobs.persistence.dao.impl.TaskDaoImpl">
-        <property name="sessionFactory" ref="sessionFactory" />
-    </bean>
-
-	--><!-- WS Bean -->
+    
+    <!-- WS Bean -->
 
     <bean id="usersManager" class="org.jobs.ws.bean.UsersManagerBean">
         <property name="roleDao" ref="roleDao" />
-        <property name="userDao" ref="userDao" />
-    </bean><!--
-
-    <bean id="projectsManager" class="org.jobs.ws.bean.ProjectsManagerBean">
-        <property name="logDao" ref="logDao" />
-        <property name="projectDao" ref="projectDao" />
-        <property name="taskDao" ref="taskDao" />
+        <property name="groupDao" ref="groupDao"/>
         <property name="userDao" ref="userDao" />
     </bean>
-    -->
+
 </beans>
