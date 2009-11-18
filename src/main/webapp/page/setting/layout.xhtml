@@ -19,11 +19,9 @@
 			<h:commandLink value="#{msgs.users}" action="user.home">
 				<f:setPropertyActionListener target="#{settingBean.include}" value="/page/setting/user/list.xhtml" />
 			</h:commandLink>
-			<br />
-			<h:commandLink value="#{msgs.groups}" action="group.home">
+			<!-- h:commandLink value="#{msgs.groups}" action="group.home">
 				<f:setPropertyActionListener target="#{settingBean.include}" value="/page/setting/group/list.xhtml" />
-			</h:commandLink>
-			<br />
+			</h:commandLink -->
 		</h:form>
 	</ui:define>
 </ui:composition>
