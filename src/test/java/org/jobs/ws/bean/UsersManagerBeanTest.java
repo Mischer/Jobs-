@@ -1,5 +1,7 @@
 package org.jobs.ws.bean;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.jobs.JobsTest;
@@ -22,10 +24,10 @@ public class UsersManagerBeanTest {
 		usersManager = (UsersManager) JobsTest.getContext().getBean("usersManager");
 	}
 
-	@Test
+	@Ignore
 	public void testCreateRole() {
 		Role role = new Role();
-		role.setAuthority(RoleConstant.ROLE_ADMINISTRATOR);
+		role.setAuthority(RoleConstant.IS_AUTHENTICATED_ANONYMOUSLY);
 		Long id = usersManager.createRole(role);
 		Assert.assertNotNull(id);
 	}
@@ -35,13 +37,29 @@ public class UsersManagerBeanTest {
 		User user = new User();
 		user.setUsername("test");
 		user.setPassword("test");
-		user.setAccountNonExpired(true);
-		user.setCredentialsNonExpired(true);
+		Date date = new Date(2010,1,1);
+		user.setAccountExpired(date);
+		user.setCredentialsExpired(date);
 		user.setEnabled(true);
 		user.getRoles().add(new Role(RoleConstant.ROLE_USER));
 		idUser = usersManager.createUser(user).getId();
 		Assert.assertNotNull(idUser);
 	}
+	
+	@Test
+	public void testCreateAdmin() {
+		User user = new User();
+		user.setUsername("admin");
+		user.setPassword("admin");
+		Date date = new Date(2010,1,1);
+		user.setAccountExpired(date);
+		user.setCredentialsExpired(date);
+		user.setEnabled(true);
+		user.getRoles().add(new Role(RoleConstant.ROLE_ADMINISTRATOR));
+		idUser = usersManager.createUser(user).getId();
+		Assert.assertNotNull(idUser);
+	}
+
 
 	@Test
 	public void testGetUser() {

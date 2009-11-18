@@ -6,6 +6,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebService;
 
 import org.apache.log4j.Logger;
+import org.jobs.persistence.bean.Group;
 import org.jobs.persistence.bean.Role;
 import org.jobs.persistence.bean.User;
 import org.jobs.persistence.dao.GroupDao;
@@ -84,5 +85,27 @@ public class UsersManagerBean implements UsersManager {
 	public Long createRole(Role role) {
 		roleDao.create(role);
 	    return role.getId();
+    }
+
+	@Override
+	@WebMethod
+    public List<Group> getGroupAll() {
+		return groupDao.getAll();
+    }
+
+	@Override
+	@WebMethod
+    public List<Role> getRoles() {
+		return roleDao.getAll();
+    }
+
+	@Override
+	@WebMethod
+    public void deleteUser(Long userId) throws Exception {
+		User user = userDao.get(userId);
+		if (user == null){
+			throw new Exception("Not found user");
+		}
+		userDao.delete(user);
     }
 }

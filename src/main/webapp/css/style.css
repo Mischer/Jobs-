@@ -316,6 +316,18 @@ p#intro {font-size: 24px;
        background-color: #F3F3F3;
        float: right;}
 
+.input {margin-right: 5px;
+				 width: 170px;
+                 vertical-align: middle;
+                 border: 1px solid #6A7A86;
+                 padding: 0.26em;
+                 background-color: #E4E4E4;
+                 color: #6C7079;}
+
+.input:focus {background-color: #F3F3F3;
+                       color: #6C7074;}
+
+
 /* A single column division. Good for terms of use, privacy policy, etc. */
 
 #single-column {width: 100%;

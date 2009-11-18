@@ -25,7 +25,7 @@
                 <!--For the search feature to work, you will of course need to do some server side scripting.-->
                 <div id="setting">
                 	 <h:form>
-	                	 <h:commandLink action="#{loginBean.logoutAction}" value="#{msgs.logout}" >
+	                	 <h:commandLink action="#{userBean.logoutAction}" value="#{msgs.logout}" >
 	                	 	<f:param name="logout" value="1"/>
 	                	 </h:commandLink>|
 	                	 <h:commandLink action="#{settingBean.openAction}" value="#{msgs.setting}" />
@@ -43,10 +43,7 @@
                 <form jsfc="h:form">
                     <ul>
                         <li><h:commandLink value="Home" action="home" /></li>
-                        <li><h:commandLink value="User" action="user.home" /></li>
-                        <li><h:commandLink value="Group" action="group.home" /></li>
-                        <li><h:commandLink value="Projets" action="project.home" /></li>
-                        <li><h:commandLink value="My tasks" action="task.home" /></li>
+                        <li><h:commandLink value="Setting" action="setting.home" rendered="#{role.ROLE_ADMINISTRATOR}"/></li>
                     </ul>
                 </form>
             </div><!--End main navigation menu-->
@@ -61,9 +58,9 @@
                 </div><!--[if !IE]>End left-column<![endif]-->
                 <!--Place secondary content in the following division.-->
                 <div id="right-column">
-                    <h3>Heading</h3>
-                    <a href="#">Test link</a>
-                    <ui:insert name="link" >
+                    <ui:insert name="right_menu" >
+	                    <h3>Heading</h3>
+    	                <a href="#">Test link</a>
                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse arcu enim, commodo id, auctor id, aliquet sit amet, erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
                     </ui:insert>
                 </div><!--End right-column-->

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.jws.WebService;
 
+import org.jobs.persistence.bean.Group;
 import org.jobs.persistence.bean.Role;
 import org.jobs.persistence.bean.User;
 import org.springframework.transaction.annotation.Propagation;
@@ -29,4 +30,11 @@ public interface UsersManager {
 
 	@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
 	Long createRole(Role role);
+	
+	List<Group> getGroupAll();
+
+	List<Role> getRoles();
+
+	@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
+	void deleteUser(Long userId) throws Exception;
 }

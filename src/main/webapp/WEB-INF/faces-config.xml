@@ -6,6 +6,11 @@
  <lifecycle>
 	<phase-listener>org.jobs.web.LoginPhase</phase-listener>
  </lifecycle> 
+ 
+ <validator>
+ 	<validator-id>org.jobs.web.validator.Password</validator-id>
+ 	<validator-class>org.jobs.web.validator.PasswordValidator</validator-class>
+ </validator>
 
  <application>
 	<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
@@ -19,26 +24,8 @@
  		<base-name>org.jobs.web.messages</base-name>
  		<var>msgs</var>
  	</resource-bundle>
+ 	<message-bundle>org.jobs.web.messages</message-bundle>
   </application>
- <!-- 
- <managed-bean>
-  <managed-bean-name>sessionBean</managed-bean-name>
-  <managed-bean-class>org.jobs.web.bean.SessionBean</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
- </managed-bean>
-
- <managed-bean>
-  <managed-bean-name>userBean</managed-bean-name>
-  <managed-bean-class>org.jobs.web.bean.UserBean</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
- </managed-bean>
- 
-  <managed-bean>
-  <managed-bean-name>groupBean</managed-bean-name>
-  <managed-bean-class>org.jobs.web.bean.GroupBean</managed-bean-class>
-  <managed-bean-scope>request</managed-bean-scope>
- </managed-bean>
- --> 
  <navigation-rule>
   <from-view-id>*</from-view-id>
   
@@ -62,101 +49,64 @@
 
   <navigation-case>
    <from-outcome>user.home</from-outcome>
-   <to-view-id>/page/user/index.jsp</to-view-id>
+   <to-view-id>/page/setting/user/index.jsp</to-view-id>
    <redirect/>
   </navigation-case>
   <navigation-case>
    <from-outcome>user.view</from-outcome>
-   <to-view-id>/page/user/view.jsp</to-view-id>
-   <redirect/>
+   <to-view-id>/page/setting/user/view.jsp</to-view-id>
   </navigation-case>
   <navigation-case>
    <from-outcome>user.edit</from-outcome>
-   <to-view-id>/page/user/edit.jsp</to-view-id>
-   <redirect/>
+   <to-view-id>/page/setting/user/edit.jsp</to-view-id>
   </navigation-case>
   <navigation-case>
    <from-outcome>user.list</from-outcome>
-   <to-view-id>/page/user/list.jsp</to-view-id>
-   <redirect/>
+   <to-view-id>/page/setting/user/list.jsp</to-view-id>
   </navigation-case>
 
   <navigation-case>
    <from-outcome>group.home</from-outcome>
-   <to-view-id>/page/group/index.jsp</to-view-id>
+   <to-view-id>/page/setting/group/index.jsp</to-view-id>
    <redirect/>
   </navigation-case>
   <navigation-case>
    <from-outcome>group.view</from-outcome>
-   <to-view-id>/page/group/view.jsp</to-view-id>
+   <to-view-id>/page/setting/group/view.jsp</to-view-id>
    <redirect/>
   </navigation-case>
   <navigation-case>
    <from-outcome>group.edit</from-outcome>
-   <to-view-id>/page/group/edit.jsp</to-view-id>
+   <to-view-id>/page/setting/group/edit.jsp</to-view-id>
    <redirect/>
   </navigation-case>
   <navigation-case>
    <from-outcome>group.edit</from-outcome>
-   <to-view-id>/page/group/edit.jsp</to-view-id>
+   <to-view-id>/page/setting/group/edit.jsp</to-view-id>
    <redirect/>
   </navigation-case>
   <navigation-case>
    <from-outcome>group.list</from-outcome>
-   <to-view-id>/page/group/list.jsp</to-view-id>
+   <to-view-id>/page/setting/group/list.jsp</to-view-id>
    <redirect/>
   </navigation-case>
 
   <navigation-case>
-   <from-outcome>task.home</from-outcome>
-   <to-view-id>/page/task/index.jsp</to-view-id>
+   <from-outcome>setting.home</from-outcome>
+   <to-view-id>/page/setting/index.jsp</to-view-id>
    <redirect/>
   </navigation-case>
   <navigation-case>
-   <from-outcome>task.view</from-outcome>
-   <to-view-id>/page/task/view.jsp</to-view-id>
-   <redirect/>
+   <from-outcome>setting.view</from-outcome>
+   <to-view-id>/page/setting/view.jsp</to-view-id>
   </navigation-case>
   <navigation-case>
-   <from-outcome>task.edit</from-outcome>
-   <to-view-id>/page/task/edit.jsp</to-view-id>
-   <redirect/>
+   <from-outcome>setting.edit</from-outcome>
+   <to-view-id>/page/setting/edit.jsp</to-view-id>
   </navigation-case>
   <navigation-case>
-   <from-outcome>task.edit</from-outcome>
-   <to-view-id>/page/task/edit.jsp</to-view-id>
-   <redirect/>
-  </navigation-case>
-  <navigation-case>
-   <from-outcome>task.list</from-outcome>
-   <to-view-id>/page/task/list.jsp</to-view-id>
-   <redirect/>
-  </navigation-case>
-
-  <navigation-case>
-   <from-outcome>project.home</from-outcome>
-   <to-view-id>/page/project/index.jsp</to-view-id>
-   <redirect/>
-  </navigation-case>
-  <navigation-case>
-   <from-outcome>project.view</from-outcome>
-   <to-view-id>/page/project/view.jsp</to-view-id>
-   <redirect/>
-  </navigation-case>
-  <navigation-case>
-   <from-outcome>project.edit</from-outcome>
-   <to-view-id>/page/project/edit.jsp</to-view-id>
-   <redirect/>
-  </navigation-case>
-  <navigation-case>
-   <from-outcome>project.edit</from-outcome>
-   <to-view-id>/page/project/edit.jsp</to-view-id>
-   <redirect/>
-  </navigation-case>
-  <navigation-case>
-   <from-outcome>project.list</from-outcome>
-   <to-view-id>/page/project/list.jsp</to-view-id>
-   <redirect/>
+   <from-outcome>setting.list</from-outcome>
+   <to-view-id>/page/setting/list.jsp</to-view-id>
   </navigation-case>
   
  </navigation-rule>

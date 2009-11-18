@@ -2,17 +2,17 @@
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
-
-<ui:composition template="layout.xhtml">
-
+	
+	<ui:composition template="layout.xhtml">
+	
 	<ui:define name="content">
 		<h:form>
-			<h:dataTable value="#{userBean.listUser}" var="list">
+			<h:dataTable value="#{userBean.listUser}" width="750" var="list" border="0">
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Login" />
 					</f:facet>
-					<h:commandLink action="user.view" value="#{list.login}">
+					<h:commandLink action="user.view" value="#{list.username}">
 						<f:param name="id" value="#{list.id}" />
 					</h:commandLink>
 				</h:column>
@@ -20,13 +20,31 @@
 					<f:facet name="header">
 						<h:outputText value="Name" />
 					</f:facet>
-					<h:outputText value="#{list.name}" />
+					<h:outputText value="#{list.username}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Enable" />
+					</f:facet>
+					<h:outputText value="#{list.enabled}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Account expired" />
+					</f:facet>
+					<h:outputText value="#{list.accountExpired}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Credential expired"/>
+					</f:facet>
+					<h:outputText value="#{list.credentialsExpired}" />
 				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Action" />
 					</f:facet>
-					<h:panelGrid columns="3" cellpadding="3" cellspacing="2">
+					<h:panelGrid columns="3" cellpadding="3" cellspacing="2" width="150">
 						<h:commandLink action="#{userBean.view}" value="View">
 							<f:param name="id" value="#{list.id}" />
 						</h:commandLink>
@@ -41,7 +59,7 @@
 			</h:dataTable>
 		</h:form>
 	</ui:define>
-
-</ui:composition>
-
+	
+	</ui:composition>
+	
 </html>

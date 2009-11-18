@@ -1,13 +1,11 @@
 package org.jobs.web.bean;
 
-import java.io.Serializable;
+public class SettingBean extends BaseBean {
 
-public class SettingBean implements Serializable {
-	
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
 	public String openAction() {
-	    return null;
-    }
+		return null;
+	}
 
 }

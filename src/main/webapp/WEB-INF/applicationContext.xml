@@ -100,14 +100,19 @@
     <jaxws:client id="usersWSClient" serviceClass="org.jobs.ws.bean.UsersManager"
                 address="http://localhost:9090/jobs/ws/users" />
 
-	<bean id="loginBean" class="org.jobs.web.bean.LoginBean"/>
+	<bean id="userService" class="org.jobs.web.UserService"/>
 	
 	<bean id="sessionBean" class="org.jobs.web.bean.SessionBean" scope="session" />
 	
 	<bean id="settingBean" class="org.jobs.web.bean.SettingBean" scope="session" />
 	
+	<bean id="role" class="org.jobs.web.RoleBean" scope="session" />
+	
 	<bean id="userBean" class="org.jobs.web.bean.UserBean" scope="request" />
 	
 	<bean id="groupBean" class="org.jobs.web.bean.GroupBean" scope="request"/>
+	
+	<bean id="adminBean" class="org.jobs.web.admin.bean.AdminBean" scope="request" />
+	
 	
 </beans>

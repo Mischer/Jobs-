@@ -5,6 +5,7 @@
 
 package org.jobs.persistence.bean;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -43,10 +44,10 @@ public class User implements UserDetails {
 	private String password;
 	@Column(name = "enabled")
 	private boolean enabled;
-	@Column(name = "accountNonExpired")
-	private boolean accountNonExpired;
-	@Column(name = "credentialsNonExpired")
-	private boolean credentialsNonExpired;
+	@Column(name = "accountExpired")
+	private Date accountExpired;
+	@Column(name = "credentialsExpired")
+	private Date credentialsExpired;
 
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	private Set<Role> roles = new HashSet<Role>();
@@ -91,21 +92,29 @@ public class User implements UserDetails {
 
 	@Override
 	public boolean isAccountNonExpired() {
-		return accountNonExpired;
-	}
-
-	public void setAccountNonExpired(boolean accountNonExpired) {
-		this.accountNonExpired = accountNonExpired;
+		return getAccountExpired().after(new Date());
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		return credentialsNonExpired;
+		return getCredentialsExpired().after(new Date());
 	}
 
-	public void setCredentialsNonExpired(boolean credentialsNonExpired) {
-		this.credentialsNonExpired = credentialsNonExpired;
-	}
+	public Date getAccountExpired() {
+    	return accountExpired;
+    }
+
+	public void setAccountExpired(Date accountExpired) {
+    	this.accountExpired = accountExpired;
+    }
+
+	public Date getCredentialsExpired() {
+    	return credentialsExpired;
+    }
+
+	public void setCredentialsExpired(Date credentialsExpired) {
+    	this.credentialsExpired = credentialsExpired;
+    }
 
 	public Set<Role> getRoles() {
 		return roles;

@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="layout.xhtml">
+
+	<ui:define name="content">
+		<form jsfc="h:form" styleClass="">
+			<input type="hidden" jsfc="h:inputHidden" value="#{userBean.user.id}"  />
+			<table jsfc="h:panelGrid" columns="3" headerClass="header_table" cellpadding="2" cellspacing="1">
+				
+				<label jsfc="h:outputLabel" for="name">#{msgs.name}</label>
+				<input type="text" jsfc="h:inputText" value="#{userBean.user.username}" id="name" required="true" styleClass="input" disabled="#{userBean.disable}"/>
+				<label jsfc="h:message" for="name" showSummary="true" showDetail="false"/>
+				
+				<label jsfc="h:outputLabel" for="password">#{msgs.password}</label>
+				<input type="password" jsfc="h:inputText" value="#{userBean.user.password}"  id="password"  styleClass="input" disabled="#{userBean.disable}">
+					<f:validator validatorId="org.jobs.web.validator.Password"/>
+				</input>
+				<label jsfc="h:message" for="password"/>
+				
+				<label jsfc="h:outputLabel" for="password_confirm">#{msgs.con_password}</label>
+				<input type="password" jsfc="h:inputText" value="#{userBean.user.password}"  id="password_confirm"  styleClass="input" disabled="#{userBean.disable}"/>
+				<label jsfc="h:message" for="password_confirm"/>
+				
+				<label jsfc="h:outputLabel" for="enabled">#{msgs.enabled}</label>
+				<input type="radio" jsfc="h:selectOneRadio" value="#{userBean.user.enabled}" required="true" id="enabled" disabled="#{userBean.disable}">
+					<f:selectItem itemLabel="true" itemValue="true"/>
+					<f:selectItem itemLabel="false" itemValue="false"/>
+				</input>
+				<label jsfc="h:message" for="enabled"/>
+				
+				<label jsfc="h:outputLabel" for="account_expired">#{msgs.account_expired}</label>
+				<input type="text" jsfc="h:inputText" id="account_expired" value="#{userBean.user.accountExpired}"  required="true" styleClass="input" disabled="#{userBean.disable}">
+					<f:convertDateTime />
+				</input>
+				<label jsfc="h:message" for="account_expired"/>
+
+				<label jsfc="h:outputLabel" for="credentials_expired">#{msgs.credentials_expired}</label>
+				<input type="text" jsfc="h:inputText" id="credentials_expired" value="#{userBean.user.credentialsExpired}"  required="true" styleClass="input" disabled="#{userBean.disable}">
+					<f:convertDateTime />
+				</input>
+				<label jsfc="h:message" for="credentials_expired"/>
+				
+				<label jsfc="h:outputLabel" for="roles">#{msgs.roles}</label>
+				<input type="radio" jsfc="h:selectOneMenu" id="roles"  required="true" disabled="#{userBean.disable}">
+					<f:selectItems value="#{userBean.roles}"/>
+				</input>
+				<label jsfc="h:message" for="roles"/>
+				
+			</table>
+			<br/>
+			<input type="button" jsfc="h:commandButton" value="#{msgs.cancel}" action="user.list" styleClass="button" immediate="true"/>
+			<input type="reset" jsfc="h:commandButton" value="#{msgs.reset}" styleClass="button" rendered="#{!userBean.disable}"/>
+			<input type="submit" jsfc="h:commandButton" value="#{msgs.save}" action="#{userBean.saveUser}" styleClass="button" rendered="#{!userBean.disable}"/>				
+		</form>
+	</ui:define>
+
+</ui:composition>
+
+</html>

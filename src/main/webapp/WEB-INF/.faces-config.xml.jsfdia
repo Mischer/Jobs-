@@ -12,85 +12,68 @@
     PATH="/page/login.jsp" TARGET="rules:#page#login.jsp" TITLE="login" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="home::#page#main.jsp" NAME="output2"
     PATH="/page/main.jsp" TARGET="rules:#page#main.jsp" TITLE="home" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="user.home::#page#user#index.jsp"
-    NAME="output3" PATH="/page/user/index.jsp"
-    TARGET="rules:#page#user#index.jsp" TITLE="user.home" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="user.view::#page#user#view.jsp"
-    NAME="output4" PATH="/page/user/view.jsp"
-    TARGET="rules:#page#user#view.jsp" TITLE="user.view" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="user.edit::#page#user#edit.jsp"
-    NAME="output5" PATH="/page/user/edit.jsp"
-    TARGET="rules:#page#user#edit.jsp" TITLE="user.edit" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="user.list::#page#user#list.jsp"
-    NAME="output6" PATH="/page/user/list.jsp"
-    TARGET="rules:#page#user#list.jsp" TITLE="user.list" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="group.home::#page#group#index.jsp"
-    NAME="output7" PATH="/page/group/index.jsp"
-    TARGET="rules:#page#group#index.jsp" TITLE="group.home" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="group.edit::#page#group#edit.jsp"
-    NAME="output8" PATH="/page/group/edit.jsp"
-    TARGET="rules:#page#group#edit.jsp" TITLE="group.edit" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="group.list::#page#group#list.jsp"
-    NAME="output9" PATH="/page/group/list.jsp"
-    TARGET="rules:#page#group#list.jsp" TITLE="group.list" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="task.home::#page#task#index.jsp"
-    NAME="output10" PATH="/page/task/index.jsp"
-    TARGET="rules:#page#task#index.jsp" TITLE="task.home" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="task.view::#page#task#view.jsp"
-    NAME="output11" PATH="/page/task/view.jsp"
-    TARGET="rules:#page#task#view.jsp" TITLE="task.view" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="task.edit::#page#task#edit.jsp"
-    NAME="output12" PATH="/page/task/edit.jsp"
-    TARGET="rules:#page#task#edit.jsp" TITLE="task.edit" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="task.list::#page#task#list.jsp"
-    NAME="output13" PATH="/page/task/list.jsp"
-    TARGET="rules:#page#task#list.jsp" TITLE="task.list" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="project.home::#page#project#index.jsp"
-    NAME="output14" PATH="/page/project/index.jsp"
-    TARGET="rules:#page#project#index.jsp" TITLE="project.home" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="project.view::#page#project#view.jsp"
-    NAME="output15" PATH="/page/project/view.jsp"
-    TARGET="rules:#page#project#view.jsp" TITLE="project.view" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="project.edit::#page#project#edit.jsp"
-    NAME="output16" PATH="/page/project/edit.jsp"
-    TARGET="rules:#page#project#edit.jsp" TITLE="project.edit" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="project.list::#page#project#list.jsp"
-    NAME="output17" PATH="/page/project/list.jsp"
-    TARGET="rules:#page#project#list.jsp" TITLE="project.list" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="user.home::#page#setting#user#index.jsp"
+    NAME="output3" PATH="/page/setting/user/index.jsp"
+    TARGET="rules:#page#setting#user#index.jsp" TITLE="user.home" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="user.view::#page#setting#user#view.jsp"
+    NAME="output4" PATH="/page/setting/user/view.jsp"
+    TARGET="rules:#page#setting#user#view.jsp" TITLE="user.view" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="user.edit::#page#setting#user#edit.jsp"
+    NAME="output5" PATH="/page/setting/user/edit.jsp"
+    TARGET="rules:#page#setting#user#edit.jsp" TITLE="user.edit" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="user.list::#page#setting#user#list.jsp"
+    NAME="output6" PATH="/page/setting/user/list.jsp"
+    TARGET="rules:#page#setting#user#list.jsp" TITLE="user.list" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="group.home::#page#setting#group#index.jsp"
+    NAME="output7" PATH="/page/setting/group/index.jsp"
+    TARGET="rules:#page#setting#group#index.jsp" TITLE="group.home" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="group.view::#page#setting#group#view.jsp"
+    NAME="output8" PATH="/page/setting/group/view.jsp"
+    TARGET="rules:#page#setting#group#view.jsp" TITLE="group.view" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="group.edit::#page#setting#group#edit.jsp"
+    NAME="output9" PATH="/page/setting/group/edit.jsp"
+    TARGET="rules:#page#setting#group#edit.jsp" TITLE="group.edit" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="group.list::#page#setting#group#list.jsp"
+    NAME="output10" PATH="/page/setting/group/list.jsp"
+    TARGET="rules:#page#setting#group#list.jsp" TITLE="group.list" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="setting.home::#page#setting#index.jsp"
+    NAME="output14" PATH="/page/setting/index.jsp"
+    TARGET="rules:#page#setting#index.jsp" TITLE="setting.home" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="setting.view::#page#setting#view.jsp"
+    NAME="output15" PATH="/page/setting/view.jsp"
+    TARGET="rules:#page#setting#view.jsp" TITLE="setting.view" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="setting.edit::#page#setting#edit.jsp"
+    NAME="output16" PATH="/page/setting/edit.jsp"
+    TARGET="rules:#page#setting#edit.jsp" TITLE="setting.edit" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="setting.list::#page#setting#list.jsp"
+    NAME="output17" PATH="/page/setting/list.jsp"
+    TARGET="rules:#page#setting#list.jsp" TITLE="setting.list" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#page#user#view.jsp"
-  PATH="/page/user/view.jsp" SHAPE="272,321,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#page#user#list.jsp"
-  PATH="/page/user/list.jsp" SHAPE="304,609,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#page#user#edit.jsp"
-  PATH="/page/user/edit.jsp" SHAPE="304,497,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#page#user#index.jsp"
-  PATH="/page/user/index.jsp" SHAPE="304,497,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#page#group#view.jsp"
-  PATH="/page/group/view.jsp" SHAPE="304,929,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#page#group#edit.jsp"
-  PATH="/page/group/edit.jsp" SHAPE="304,625,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#page#group#list.jsp"
-  PATH="/page/group/list.jsp" SHAPE="304,657,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#page#task#view.jsp"
-  PATH="/page/task/view.jsp" SHAPE="304,1121,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#page#task#edit.jsp"
-  PATH="/page/task/edit.jsp" SHAPE="304,1233,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#page#task#list.jsp"
-  PATH="/page/task/list.jsp" SHAPE="304,1457,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#page#project#view.jsp"
-  PATH="/page/project/view.jsp" SHAPE="304,1249,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#page#project#list.jsp"
-  PATH="/page/project/list.jsp" SHAPE="304,1921,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#page#project#edit.jsp"
-  PATH="/page/project/edit.jsp" SHAPE="304,1585,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#page#group#index.jsp"
-  PATH="/page/group/index.jsp" SHAPE="304,913,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#page#task#index.jsp"
-  PATH="/page/task/index.jsp" SHAPE="304,1249,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#page#project#index.jsp"
-  PATH="/page/project/index.jsp" SHAPE="304,1361,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#page#login.jsp" PATH="/page/login.jsp"
   SHAPE="304,913,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#page#setting#edit.jsp"
+  PATH="/page/setting/edit.jsp" SHAPE="304,1361,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#page#setting#view.jsp"
+  PATH="/page/setting/view.jsp" SHAPE="304,1249,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#page#setting#list.jsp"
+  PATH="/page/setting/list.jsp" SHAPE="304,1585,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#page#setting#index.jsp"
+  PATH="/page/setting/index.jsp" SHAPE="304,913,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#page#setting#user#index.jsp"
+  PATH="/page/setting/user/index.jsp" SHAPE="304,705,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#page#setting#user#edit.jsp"
+  PATH="/page/setting/user/edit.jsp" SHAPE="304,929,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#page#setting#user#view.jsp"
+  PATH="/page/setting/user/view.jsp" SHAPE="304,817,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#page#setting#user#list.jsp"
+  PATH="/page/setting/user/list.jsp" SHAPE="304,705,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#page#setting#group#index.jsp"
+  PATH="/page/setting/group/index.jsp" SHAPE="304,817,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#page#setting#group#list.jsp"
+  PATH="/page/setting/group/list.jsp" SHAPE="304,929,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#page#setting#group#view.jsp"
+  PATH="/page/setting/group/view.jsp" SHAPE="304,705,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#page#setting#group#edit.jsp"
+  PATH="/page/setting/group/edit.jsp" SHAPE="304,817,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

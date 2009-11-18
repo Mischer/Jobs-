@@ -17,14 +17,14 @@
 		<intercept-url pattern="/images/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<intercept-url pattern="/page/*.*"  access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		
-		<intercept-url pattern="/page/**" access="ROLE_USER" />
-		<remember-me user-service-ref="loginBean" />
+		<intercept-url pattern="/page/**" access="ROLE_USER, ROLE_ADMINISTRATOR" />
+		<remember-me user-service-ref="userService" />
 		<anonymous/>
 		<form-login login-page="/page/login.jsf" login-processing-url="/j_spring_security_check" default-target-url="/page/main.jsf"/>
 		<logout logout-url="/page/login.jsf?logout=1" /> 
 	</http>
 	
-	<authentication-provider user-service-ref="loginBean">
+	<authentication-provider user-service-ref="userService">
 	</authentication-provider>
 	
 	<bean:bean id="loggerListener" class="org.springframework.security.event.authentication.LoggerListener" />
