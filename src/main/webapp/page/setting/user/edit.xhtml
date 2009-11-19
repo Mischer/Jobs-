@@ -15,13 +15,13 @@
 				<label jsfc="h:message" for="name" showSummary="true" showDetail="false"/>
 				
 				<label jsfc="h:outputLabel" for="password">#{msgs.password}</label>
-				<input type="password" jsfc="h:inputText" value="#{userBean.user.password}"  id="password"  styleClass="input" disabled="#{userBean.disable}">
+				<input type="password" jsfc="h:inputSecret" value="#{userBean.user.password}"  id="password"  styleClass="input" disabled="#{userBean.disable}">
 					<f:validator validatorId="org.jobs.web.validator.Password"/>
 				</input>
 				<label jsfc="h:message" for="password"/>
 				
 				<label jsfc="h:outputLabel" for="password_confirm">#{msgs.con_password}</label>
-				<input type="password" jsfc="h:inputText" value="#{userBean.user.password}"  id="password_confirm"  styleClass="input" disabled="#{userBean.disable}"/>
+				<input type="password" jsfc="h:inputSecret" value="#{userBean.user.password}"  id="password_confirm"  styleClass="input" disabled="#{userBean.disable}"/>
 				<label jsfc="h:message" for="password_confirm"/>
 				
 				<label jsfc="h:outputLabel" for="enabled">#{msgs.enabled}</label>

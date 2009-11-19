@@ -10,6 +10,8 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.model.SelectItem;
 
+import org.springframework.security.context.SecurityContextHolder;
+
 public class SessionBean extends BaseBean {
 	
     private static final long serialVersionUID = 1L;
@@ -48,6 +50,11 @@ public class SessionBean extends BaseBean {
 		viewRoot.setLocale(new Locale(locale));
 		setCurrentLocale(locale);
 		context.renderResponse();
+	}
+	
+	public String getName(){
+		String name = SecurityContextHolder.getContext().getAuthentication().getName();
+		return name;
 	}
 
 }
