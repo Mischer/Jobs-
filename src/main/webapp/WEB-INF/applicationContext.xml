@@ -41,6 +41,10 @@
     <bean id="groupDao" class="org.jobs.persistence.dao.impl.GroupDaoImpl">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
+
+    <bean id="orderDao" class="org.jobs.persistence.dao.impl.OrderDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
     
 	<!-- WS Bean -->
 
@@ -48,7 +52,13 @@
         <property name="roleDao" ref="roleDao" />
         <property name="groupDao" ref="groupDao" />
         <property name="userDao" ref="userDao" />
-    </bean><!--
+    </bean>
+
+    <bean id="processManager" class="org.jobs.ws.bean.ProcessManagerBean">
+        <property name="orderDao" ref="orderDao" />
+    </bean>
+    
+    <!--
 
     <bean id="projectsManager" class="org.jobs.ws.bean.ProjectsManagerBean">
         <property name="logDao" ref="logDao" />
@@ -94,12 +104,17 @@
 
     <jaxws:endpoint id="usersWS" implementor="#usersManager" implementorClass="org.jobs.ws.bean.UsersManagerBean"
 		address="/users" />
+    <jaxws:endpoint id="processWS" implementor="#processManager" implementorClass="org.jobs.ws.bean.ProcessManagerBean"
+		address="/process" />
 
 	<!-- CXF client -->
 	
     <jaxws:client id="usersWSClient" serviceClass="org.jobs.ws.bean.UsersManager"
                 address="http://localhost:9090/jobs/ws/users" />
+    <jaxws:client id="processWSClient" serviceClass="org.jobs.ws.bean.ProcessManager"
+                address="http://localhost:9090/jobs/ws/process" />
 
+	<!-- JSF Bean -->
 	<bean id="userService" class="org.jobs.web.UserService"/>
 	
 	<bean id="sessionBean" class="org.jobs.web.bean.SessionBean" scope="session" />

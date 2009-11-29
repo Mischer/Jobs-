@@ -1,5 +1,6 @@
 package org.jobs;
 
+import org.jobs.ws.bean.ProcessManagerBeanTest;
 import org.jobs.ws.bean.UsersManagerBeanTest;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -12,7 +13,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 //@Ignore
 @RunWith(Suite.class)
-@Suite.SuiteClasses( { UsersManagerBeanTest.class })
+@Suite.SuiteClasses( { UsersManagerBeanTest.class , ProcessManagerBeanTest.class })
 public class JobsTest {
 
 	private static ApplicationContext context = null;

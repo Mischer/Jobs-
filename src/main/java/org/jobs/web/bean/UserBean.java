@@ -40,8 +40,7 @@ public class UserBean extends BaseBean {
 	}
 
 	public List<User> getListUser() {
-		return listUser;
-		
+		return listUser;	
 	}
 
 	public String delete() {

@@ -14,8 +14,8 @@ import org.jobs.persistence.dao.RoleDao;
 import org.jobs.persistence.dao.UserDao;
 import org.jobs.persistence.dao.impl.DaoImpl.Sort;
 
-@WebService(serviceName = "UserManager", endpointInterface = "org.jobs.ws.bean.UsersManager")
 @SuppressWarnings("unused")
+@WebService(serviceName = "UserManager", endpointInterface = "org.jobs.ws.bean.UsersManager")
 public class UsersManagerBean implements UsersManager {
 
 	private static Logger log = Logger.getLogger(UsersManagerBean.class);

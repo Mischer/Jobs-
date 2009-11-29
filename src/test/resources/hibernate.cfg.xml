@@ -28,7 +28,8 @@
         <mapping class="org.jobs.persistence.bean.User" />
         <mapping class="org.jobs.persistence.bean.Role" />        
 		<mapping class="org.jobs.persistence.bean.Order" />
-		
+		<mapping class="org.jobs.persistence.bean.Client" />
+				
     </session-factory>
 
 </hibernate-configuration>

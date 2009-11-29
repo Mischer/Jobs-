@@ -16,11 +16,9 @@
         <property name="configLocation" value="classpath:hibernate.cfg.xml" />
     </bean>
 
-
     <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
-
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
@@ -39,13 +37,21 @@
     <bean id="groupDao" class="org.jobs.persistence.dao.impl.GroupDaoImpl">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
+
+    <bean id="orderDao" class="org.jobs.persistence.dao.impl.OrderDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
     
-    <!-- WS Bean -->
+	<!-- WS Bean -->
 
     <bean id="usersManager" class="org.jobs.ws.bean.UsersManagerBean">
         <property name="roleDao" ref="roleDao" />
-        <property name="groupDao" ref="groupDao"/>
+        <property name="groupDao" ref="groupDao" />
         <property name="userDao" ref="userDao" />
     </bean>
 
+    <bean id="processManager" class="org.jobs.ws.bean.ProcessManagerBean">
+        <property name="orderDao" ref="orderDao" />
+    </bean>
+    
 </beans>

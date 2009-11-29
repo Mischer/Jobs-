@@ -5,7 +5,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
-	<ui:composition template="../layout.xhtml">
+	<ui:composition template="layout.xhtml">
 		<ui:define name="content">
 		
 			<form jsfc="h:form" styleClass="">
@@ -13,24 +13,24 @@
 				<table jsfc="h:panelGrid" columns="3" headerClass="header_table" cellpadding="2" cellspacing="1">
 					
 					<label jsfc="h:outputLabel" for="first_name">#{msgs.firstName}</label>
-					<input type="text" jsfc="h:inputText" value="" id="first_name" required="true" styleClass="input" disabled="#{orderBean.disable}"/>
+					<input type="text" jsfc="h:inputText" value="#{orderBean.order.client.firstName}" id="first_name" required="true" styleClass="input" disabled="#{orderBean.disable}"/>
 					<label jsfc="h:message" for="first_name"/>
 
 					<label jsfc="h:outputLabel" for="last_name">#{msgs.lastName}</label>
-					<input type="text" jsfc="h:inputText" value="" id="last_name" required="true" styleClass="input" disabled="#{orderBean.disable}"/>
+					<input type="text" jsfc="h:inputText" value="#{orderBean.order.client.lastName}" id="last_name" required="true" styleClass="input" disabled="#{orderBean.disable}"/>
 					<label jsfc="h:message" for="last_name"/>
 
 					<label jsfc="h:outputLabel" for="middle_name">#{msgs.middleName}</label>
-					<input type="text" jsfc="h:inputText" value="" id="middle_name" required="true" styleClass="input" disabled="#{orderBean.disable}"/>
+					<input type="text" jsfc="h:inputText" value="#{orderBean.order.client.middleName}" id="middle_name" required="true" styleClass="input" disabled="#{orderBean.disable}"/>
 					<label jsfc="h:message" for="middle_name"/>
 
 					<label jsfc="h:outputLabel" for="address">#{msgs.address}</label>
-					<input type="text" jsfc="h:inputText" value="" id="address" required="true" styleClass="input" disabled="#{orderBean.disable}"/>
+					<input type="text" jsfc="h:inputText" value="#{orderBean.order.client.address}" id="address" required="true" styleClass="input" disabled="#{orderBean.disable}"/>
 					<label jsfc="h:message" for="address"/>
 					
 
 					<label jsfc="h:outputLabel" for="birthday">#{msgs.birthday}</label>
-					<input type="text" jsfc="h:inputText" id="birthday" value=""  required="true" styleClass="input" disabled="#{orderBean.disable}">
+					<input type="text" jsfc="h:inputText" id="birthday" value="#{orderBean.order.client.birthday}"  required="true" styleClass="input" disabled="#{orderBean.disable}">
 						<f:convertDateTime />
 					</input>
 					<label jsfc="h:message" for="birthday"/>
