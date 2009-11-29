@@ -77,13 +77,6 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		<!-- 
-		<dependency>
-			<groupId>org.acegisecurity</groupId>
-			<artifactId>acegi-security</artifactId>
-			<version>1.0.7</version>
-		</dependency>
-		 -->
 		<!-- Security -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
@@ -107,7 +100,6 @@
 		</dependency>
 
 		<!-- Endorsed Libraries  start -->
-		<!-- -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
@@ -123,8 +115,7 @@
 			<artifactId>jaxb-api</artifactId>
 			<version>2.1</version>
 		</dependency>
-		 
-		<!--  -->
+
 		<!-- Endorsed Libraries  finish -->
 
 		<dependency>
@@ -184,12 +175,14 @@
 		<dependency>
 			<groupId>javax.faces</groupId>
 			<artifactId>jsf-api</artifactId>
-			<version>1.2_08</version>
+			<!-- version>1.2_08</version-->
+			<version>1.2_09-BETA1</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.faces</groupId>
 			<artifactId>jsf-impl</artifactId>
-			<version>1.2_08</version>
+			<!-- version>1.2_08</version -->
+			<version>1.2_09-BETA1</version>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.facelets</groupId>
@@ -214,9 +207,18 @@
 			<scope>provided</scope>
 		</dependency>
 		<!-- GWT start -->
+
 		<!--
 			<dependency> <groupId>com.google.gwt</groupId> <artifactId>gwt-servlet</artifactId> <version>${gwt.version}</version> <scope>runtime</scope> </dependency>
-			<dependency> <groupId>com.google.gwt</groupId> <artifactId>gwt-user</artifactId> <version>${gwt.version}</version> <scope>provided</scope> </dependency>
+		-->
+
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-user</artifactId>
+			<version>${gwt.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<!--
 			<dependency> <groupId>com.google.gwt</groupId> <artifactId>gwt-dev</artifactId> <version>${gwt.version}</version> <classifier>${platform}-libs</classifier>
 			<type>zip</type> <scope>provided</scope> </dependency> <dependency> <groupId>com.google.gwt</groupId> <artifactId>gwt-dev</artifactId>
 			<version>${gwt.version}</version> <classifier>${platform}</classifier> <scope>provided</scope> </dependency>
@@ -225,9 +227,6 @@
 	</dependencies>
 
 	<build>
-		<!--
-		<outputDirectory>war/WEB-INF/classes</outputDirectory>
--->
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -236,6 +235,9 @@
 					<source>1.6</source>
 					<target>1.6</target>
 					<encoding>${project.build.sourceEncoding}</encoding>
+					<excludes>
+						<exclude>javax/servlet/**</exclude>
+					</excludes>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -247,21 +249,78 @@
 					</includes>
 				</configuration>
 			</plugin>
-
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>remove-javax</id>
+						<phase>compile</phase>
+						<configuration>
+							<tasks>
+								<delete dir="${project.build.directory}/classes/javax" />
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 			<!-- 
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>gwt-maven-plugin</artifactId>
+				<version>1.1</version>
+				<executions>
+					<execution>
+						<configuration>
+							<extraJvmArgs>-Xmx812M -Xss1024k</extraJvmArgs>
+						</configuration>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<runTarget>org.jobs.gwt.JobsPoint/app.html</runTarget>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.0.2</version>
+				<configuration>
+					<webXml>war/WEB-INF/web.xml</webXml>
+					<warSourceDirectory>src/main/webapp</warSourceDirectory>
+				</configuration>
+			</plugin>
+			-->
+			<!-- start deprecated -->
+			<!--
 				<plugin> <groupId>com.totsp.gwt</groupId> <artifactId>maven-googlewebtoolkit2-plugin</artifactId> <version>2.0-RC1</version> <configuration>
 				<logLevel>INFO</logLevel> <gwtHome>${env.GWT_HOME}</gwtHome> <compileTargets> <value>org.jobs.gwt.JobsPoint</value> </compileTargets>
-				<runTarget>org.jobs.gwt.JobsPoint/app.html</runTarget> <style>DETAILED</style> <noServer>false</noServer> <extraJvmArgs>-Xmx512m</extraJvmArgs>
+				<runTarget>org.jobs.gwt.JobsPoint/app.html</runTarget> <style>DETAILED</style> <noServer>true</noServer> <extraJvmArgs>-Xmx812m</extraJvmArgs>
 				<gwtVersion>${gwt.version}</gwtVersion> </configuration> <executions> <execution> <goals> <goal>mergewebxml</goal> <goal>compile</goal> <goal>gwt</goal>
-				</goals> </execution> </executions> </plugin> <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-war-plugin</artifactId> <configuration>
-				<webXml>target/web.xml</webXml> </configuration> </plugin> <plugin> <groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId> <executions> <execution> <id>unpack</id> <phase>compile</phase> <goals> <goal>unpack</goal> </goals>
-				<configuration> <artifactItems> <artifactItem> <groupId>com.google.gwt</groupId> <artifactId>gwt-dev</artifactId> <version>${gwt.version}</version>
-				<classifier>${platform}-libs</classifier> <type>zip</type> <overWrite>true</overWrite>
+				</goals> </execution> </executions> </plugin>
+			-->
+			<!--
+				<plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-dependency-plugin</artifactId> <executions> <execution> <id>unpack</id>
+				<phase>compile</phase> <goals> <goal>unpack</goal> </goals> <configuration> <artifactItems> <artifactItem> <groupId>com.google.gwt</groupId>
+				<artifactId>gwt-dev</artifactId> <version>${gwt.version}</version> <classifier>${platform}-libs</classifier> <type>zip</type> <overWrite>true</overWrite>
 				<outputDirectory>${settings.localRepository}/com/google/gwt/gwt-dev/${gwt.version}</outputDirectory> </artifactItem> </artifactItems> </configuration>
-				</execution> </executions> </plugin> <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-resources-plugin</artifactId>
-				<version>2.2</version> <configuration> <encoding>${project.build.sourceEncoding}</encoding> </configuration> </plugin>
-			 -->
+				</execution> </executions> </plugin>
+			-->
+			<!-- end deprecated -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-eclipse-plugin</artifactId>

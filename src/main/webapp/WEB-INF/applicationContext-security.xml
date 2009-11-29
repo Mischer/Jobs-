@@ -15,6 +15,7 @@
 		<intercept-url pattern="/ws/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<intercept-url pattern="/css/**" access="IS_AUTHENTICATED_ANONYMOUSLY"  />
 		<intercept-url pattern="/images/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/main/*.*"  access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<intercept-url pattern="/page/*.*"  access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		
 		<intercept-url pattern="/page/**" access="ROLE_USER, ROLE_ADMINISTRATOR" />

@@ -114,5 +114,6 @@
 	
 	<bean id="adminBean" class="org.jobs.web.admin.bean.AdminBean" scope="request" />
 	
+	<bean id="orderBean" class="org.jobs.web.bean.OrderBean" scope="request" />
 	
 </beans>

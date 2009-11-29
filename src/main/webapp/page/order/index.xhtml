@@ -8,7 +8,10 @@
 	<ui:composition template="../layout.xhtml">
 		
 		<ui:define name="content">
-			<h1>Index</h1>
+			<h:form>
+				<h:commandLink action="order.edit" value="edit" /><br />
+				<h:commandLink action="order.list" value="list" />
+			</h:form>
 		</ui:define>
 	
 	</ui:composition>

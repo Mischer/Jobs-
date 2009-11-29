@@ -9,8 +9,10 @@
         <!--[if lt IE 7]>
         <link rel="stylesheet" href="/jobs/css/iefixes.css" type="text/css" />
         <![endif]-->
+        <script language='javascript' src='/jobs/main/main.nocache.js'></script>
     </head>
     <body>
+        <iframe src="javascript:''" id="__gwt_historyFrame" style="width: 0; height: 0; border: 0"></iframe>
     	<ui:insert name="application" >
         <div id="container" >
             <div id="header">
@@ -40,8 +42,9 @@
             <div id="menu">
                 <form jsfc="h:form">
                     <ul>
-                        <li><h:commandLink value="Home" action="home" /></li>
-                        <li><h:commandLink value="Setting" action="setting.home" rendered="#{role.ROLE_ADMINISTRATOR}"/></li>
+                        <li><h:commandLink value="#{msgs.home}" action="home" /></li>
+                    	<li><h:commandLink value="#{msgs.order}" action="order.home" /></li>
+                        <li><h:commandLink value="#{msgs.setting}" action="setting.home" rendered="#{role.ROLE_ADMINISTRATOR}"/></li>
                     </ul>
                 </form>
             </div><!--End main navigation menu-->
@@ -64,6 +67,7 @@
                 </div><!--End right-column-->
             </div><!--End wrapper-->
         </div><!--End container-->
+        <br />
         <div id="footer">
             <!--Begin nothing goes here--><div id="footer-left"></div><div id="footer-right"></div><!--End nothing goes here-->
             <div id="footer-content">

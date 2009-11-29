@@ -13,14 +13,14 @@
 	            <form jsfc="h:form" id="loginForm" prependId="false">
 	            	
 	                <h:panelGrid columns="3" cellpadding="2">
-	                    <label for="j_username" jsfc="h:outputText">#{msgs.login_login}</label>
+	                    <label for="j_username" jsfc="h:outputText">#{msgs.login}</label>
 	                    <input type="text" id="j_username" jsfc="h:inputText" required="true"/>
 		            	<h:message for="j_username" />
-	                    <label for="j_password" jsfc="h:outputLabel">#{msgs.login_password}</label>
+	                    <label for="j_password" jsfc="h:outputLabel">#{msgs.password}</label>
 	                    <input type="password" required="true" jsfc="h:inputSecret" id="j_password" />
 	                    <h:message for="j_password" />
 	                </h:panelGrid>
-	                <h:commandButton style="float: left;" action="#{userBean.loginAction}" value="#{msgs.login_enter}" />
+	                <h:commandButton style="float: left;" action="#{userBean.loginAction}" value="#{msgs.enter}" />
 	            </form>
 	        </div>
         </ui:define>

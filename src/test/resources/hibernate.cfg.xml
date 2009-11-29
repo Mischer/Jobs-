@@ -27,6 +27,7 @@
         <mapping class="org.jobs.persistence.bean.Group" />
         <mapping class="org.jobs.persistence.bean.User" />
         <mapping class="org.jobs.persistence.bean.Role" />        
+		<mapping class="org.jobs.persistence.bean.Order" />
 		
     </session-factory>
 

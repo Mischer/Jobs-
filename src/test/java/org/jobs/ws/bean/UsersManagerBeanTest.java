@@ -1,6 +1,5 @@
 package org.jobs.ws.bean;
 
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -8,6 +7,7 @@ import org.jobs.JobsTest;
 import org.jobs.persistence.bean.Role;
 import org.jobs.persistence.bean.RoleConstant;
 import org.jobs.persistence.bean.User;
+import org.jobs.persistence.dao.impl.DaoImpl.Sort;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
@@ -37,7 +37,8 @@ public class UsersManagerBeanTest {
 		User user = new User();
 		user.setUsername("test");
 		user.setPassword("test");
-		Date date = new Date(2010,1,1);
+		user.setEmail("test@test.com");
+		Date date = new Date(2010, 1, 1);
 		user.setAccountExpired(date);
 		user.setCredentialsExpired(date);
 		user.setEnabled(true);
@@ -45,13 +46,14 @@ public class UsersManagerBeanTest {
 		idUser = usersManager.createUser(user).getId();
 		Assert.assertNotNull(idUser);
 	}
-	
+
 	@Test
 	public void testCreateAdmin() {
 		User user = new User();
 		user.setUsername("admin");
 		user.setPassword("admin");
-		Date date = new Date(2010,1,1);
+		user.setEmail("admin@admin.com");
+		Date date = new Date(2010, 1, 1);
 		user.setAccountExpired(date);
 		user.setCredentialsExpired(date);
 		user.setEnabled(true);
@@ -59,7 +61,6 @@ public class UsersManagerBeanTest {
 		idUser = usersManager.createUser(user).getId();
 		Assert.assertNotNull(idUser);
 	}
-
 
 	@Test
 	public void testGetUser() {
@@ -85,9 +86,12 @@ public class UsersManagerBeanTest {
 		Assert.assertFalse(list.isEmpty());
 	}
 
-	@Ignore
-	public void testGetGroupAll() {
-		// List<Group> list = usersManager.getGroupAll();
-		// Assert.assertFalse(list.isEmpty());
+	@Test
+	public void testGetUserAllOrderBy() {
+		String order = "username";
+		List<User> list = usersManager.getUserAllOrder(order,Sort.ASC);
+		List<User> list1 = usersManager.getUserAllOrder(order,Sort.DESC);
+		Assert.assertFalse(list.isEmpty()||list1.isEmpty());
 	}
+
 }

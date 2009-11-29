@@ -21,9 +21,13 @@
 		<property name="hibernate.current_session_context_class">thread</property>
 		<property name="hibernate.hbm2ddl.auto">update</property>
 
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+
 		<mapping class="org.jobs.persistence.bean.Group" />
 		<mapping class="org.jobs.persistence.bean.User" />
 		<mapping class="org.jobs.persistence.bean.Role" />
+		<mapping class="org.jobs.persistence.bean.Order" />
 
 	</session-factory>
 

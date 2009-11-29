@@ -23,4 +23,9 @@ public abstract class DaoImpl<T> extends HibernateDaoSupport implements Dao<T> {
     public T update(T insance) {
         return (T) getHibernateTemplate().merge(insance);
     }
+    
+    public enum Sort{
+    	ASC,
+    	DESC
+    }
 }

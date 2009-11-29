@@ -12,29 +12,35 @@
     PATH="/page/login.jsp" TARGET="rules:#page#login.jsp" TITLE="login" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="home::#page#main.jsp" NAME="output2"
     PATH="/page/main.jsp" TARGET="rules:#page#main.jsp" TITLE="home" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="order.home::#page#order#index.jsp"
+    NAME="output3" PATH="/page/order/index.jsp"
+    TARGET="rules:#page#order#index.jsp" TITLE="order.home" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="order.view::#page#order#view.jsp"
+    NAME="output4" PATH="/page/order/view.jsp"
+    TARGET="rules:#page#order#view.jsp" TITLE="order.view" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="order.edit::#page#order#edit.jsp"
+    NAME="output5" PATH="/page/order/edit.jsp"
+    TARGET="rules:#page#order#edit.jsp" TITLE="order.edit" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="order.list::#page#order#list.jsp"
+    NAME="output6" PATH="/page/order/list.jsp"
+    TARGET="rules:#page#order#list.jsp" TITLE="order.list" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="user.home::#page#setting#user#index.jsp"
-    NAME="output3" PATH="/page/setting/user/index.jsp"
+    NAME="output7" PATH="/page/setting/user/index.jsp"
     TARGET="rules:#page#setting#user#index.jsp" TITLE="user.home" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="user.view::#page#setting#user#view.jsp"
-    NAME="output4" PATH="/page/setting/user/view.jsp"
-    TARGET="rules:#page#setting#user#view.jsp" TITLE="user.view" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="user.view::#page#setting#user#edit.jsp"
+    NAME="output8" PATH="/page/setting/user/edit.jsp"
+    TARGET="rules:#page#setting#user#edit.jsp" TITLE="user.view" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="user.edit::#page#setting#user#edit.jsp"
-    NAME="output5" PATH="/page/setting/user/edit.jsp"
+    NAME="output9" PATH="/page/setting/user/edit.jsp"
     TARGET="rules:#page#setting#user#edit.jsp" TITLE="user.edit" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="user.list::#page#setting#user#list.jsp"
-    NAME="output6" PATH="/page/setting/user/list.jsp"
+    NAME="output10" PATH="/page/setting/user/list.jsp"
     TARGET="rules:#page#setting#user#list.jsp" TITLE="user.list" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="group.home::#page#setting#group#index.jsp"
-    NAME="output7" PATH="/page/setting/group/index.jsp"
-    TARGET="rules:#page#setting#group#index.jsp" TITLE="group.home" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="group.view::#page#setting#group#view.jsp"
-    NAME="output8" PATH="/page/setting/group/view.jsp"
+    NAME="output11" PATH="/page/setting/group/view.jsp"
     TARGET="rules:#page#setting#group#view.jsp" TITLE="group.view" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="group.edit::#page#setting#group#edit.jsp"
-    NAME="output9" PATH="/page/setting/group/edit.jsp"
-    TARGET="rules:#page#setting#group#edit.jsp" TITLE="group.edit" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="group.list::#page#setting#group#list.jsp"
-    NAME="output10" PATH="/page/setting/group/list.jsp"
+    NAME="output12" PATH="/page/setting/group/list.jsp"
     TARGET="rules:#page#setting#group#list.jsp" TITLE="group.list" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="setting.home::#page#setting#index.jsp"
     NAME="output14" PATH="/page/setting/index.jsp"
@@ -64,8 +70,6 @@
   PATH="/page/setting/user/index.jsp" SHAPE="304,705,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#page#setting#user#edit.jsp"
   PATH="/page/setting/user/edit.jsp" SHAPE="304,929,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#page#setting#user#view.jsp"
-  PATH="/page/setting/user/view.jsp" SHAPE="304,817,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#page#setting#user#list.jsp"
   PATH="/page/setting/user/list.jsp" SHAPE="304,705,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#page#setting#group#index.jsp"
@@ -76,4 +80,12 @@
   PATH="/page/setting/group/view.jsp" SHAPE="304,705,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#page#setting#group#edit.jsp"
   PATH="/page/setting/group/edit.jsp" SHAPE="304,817,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#page#order#index.jsp"
+  PATH="/page/order/index.jsp" SHAPE="304,705,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#page#order#edit.jsp"
+  PATH="/page/order/edit.jsp" SHAPE="304,705,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#page#order#list.jsp"
+  PATH="/page/order/list.jsp" SHAPE="304,737,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#page#order#view.jsp"
+  PATH="/page/order/view.jsp" SHAPE="304,769,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

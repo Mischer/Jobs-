@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:composition template="../layout.xhtml">
+		<ui:define name="content">
+		<h:form>
+			<h:dataTable value="#{orderBean.listOrder}" width="750" var="list" border="0">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Login" />
+					</f:facet>
+					<h:commandLink action="order.view" value="#{list.username}">
+						<f:param name="id" value="#{list.id}" />
+					</h:commandLink>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name" />
+					</f:facet>
+					<h:outputText value="" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Enable" />
+					</f:facet>
+					<h:outputText value="" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Account expired" />
+					</f:facet>
+					<h:outputText value="" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Credential expired"/>
+					</f:facet>
+					<h:outputText value="" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Action" />
+					</f:facet>
+					<h:panelGrid columns="3" cellpadding="3" cellspacing="2" width="150">
+						<h:commandLink action="#{orderBean.view}" value="View">
+							<f:param name="id" value="#{list.id}" />
+						</h:commandLink>
+						<h:commandLink action="#{orderBean.edit}" value="Edit">
+							<f:param name="id" value="#{list.id}" />
+						</h:commandLink>
+						<h:commandLink action="#{orderBean.delete}" value="Delete">
+							<f:param name="id" value="#{list.id}" />
+						</h:commandLink>
+					</h:panelGrid>
+				</h:column>
+			</h:dataTable>
+		</h:form>
+			
+		</ui:define>
+	</ui:composition>
+
+</html>

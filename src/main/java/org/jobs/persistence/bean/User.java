@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.jobs.persistence.bean;
 
 import java.util.Date;
@@ -38,7 +33,7 @@ public class User implements UserDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
-	@Column(name = "username", unique = false, nullable = false)
+	@Column(name = "username", unique = true, nullable = false)
 	private String username;
 	@Column(name = "pass", nullable = false)
 	private String password;
@@ -48,6 +43,8 @@ public class User implements UserDetails {
 	private Date accountExpired;
 	@Column(name = "credentialsExpired")
 	private Date credentialsExpired;
+	@Column(name = "email", nullable = false)
+	private String email;
 
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	private Set<Role> roles = new HashSet<Role>();
@@ -135,6 +132,14 @@ public class User implements UserDetails {
 		// TODO Auto-generated method stub
 		return true;
 	}
+	
+	public String getEmail() {
+    	return email;
+    }
+
+	public void setEmail(String email) {
+    	this.email = email;
+    }
 
 	@Override
 	public int hashCode() {

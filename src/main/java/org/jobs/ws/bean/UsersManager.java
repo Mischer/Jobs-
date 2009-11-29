@@ -7,6 +7,7 @@ import javax.jws.WebService;
 import org.jobs.persistence.bean.Group;
 import org.jobs.persistence.bean.Role;
 import org.jobs.persistence.bean.User;
+import org.jobs.persistence.dao.impl.DaoImpl.Sort;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,4 +38,7 @@ public interface UsersManager {
 
 	@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
 	void deleteUser(Long userId) throws Exception;
+
+	List<User> getUserAllOrder(String order, Sort sort);
+	
 }

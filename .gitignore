@@ -6,3 +6,4 @@ nb-configuration.xml
 .project
 .classpath
 .springBeans
+main.launch

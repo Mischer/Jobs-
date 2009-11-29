@@ -12,6 +12,7 @@ import org.jobs.persistence.bean.User;
 import org.jobs.persistence.dao.GroupDao;
 import org.jobs.persistence.dao.RoleDao;
 import org.jobs.persistence.dao.UserDao;
+import org.jobs.persistence.dao.impl.DaoImpl.Sort;
 
 @WebService(serviceName = "UserManager", endpointInterface = "org.jobs.ws.bean.UsersManager")
 @SuppressWarnings("unused")
@@ -107,5 +108,11 @@ public class UsersManagerBean implements UsersManager {
 			throw new Exception("Not found user");
 		}
 		userDao.delete(user);
+    }
+
+	@Override
+	@WebMethod
+	public List<User> getUserAllOrder(String order, Sort sort) {
+		return userDao.getAllBySort(order, sort);
     }
 }

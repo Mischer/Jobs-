@@ -11,6 +11,10 @@
  	<validator-id>org.jobs.web.validator.Password</validator-id>
  	<validator-class>org.jobs.web.validator.PasswordValidator</validator-class>
  </validator>
+ <validator>
+ 	<validator-id>org.jobs.web.validator.Email</validator-id>
+ 	<validator-class>org.jobs.web.validator.EmailValidator</validator-class>
+ </validator>
 
  <application>
 	<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
@@ -46,6 +50,25 @@
    <to-view-id>/page/main.jsp</to-view-id>
    <redirect/>
   </navigation-case>
+  
+  <navigation-case>
+   <from-outcome>order.home</from-outcome>
+   <to-view-id>/page/order/index.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>order.view</from-outcome>
+   <to-view-id>/page/order/view.jsp</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>order.edit</from-outcome>
+   <to-view-id>/page/order/edit.jsp</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>order.list</from-outcome>
+   <to-view-id>/page/order/list.jsp</to-view-id>
+  </navigation-case>
+  
 
   <navigation-case>
    <from-outcome>user.home</from-outcome>
@@ -54,7 +77,7 @@
   </navigation-case>
   <navigation-case>
    <from-outcome>user.view</from-outcome>
-   <to-view-id>/page/setting/user/view.jsp</to-view-id>
+   <to-view-id>/page/setting/user/edit.jsp</to-view-id>
   </navigation-case>
   <navigation-case>
    <from-outcome>user.edit</from-outcome>

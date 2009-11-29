@@ -13,6 +13,12 @@
 				<label jsfc="h:outputLabel" for="name">#{msgs.name}</label>
 				<input type="text" jsfc="h:inputText" value="#{userBean.user.username}" id="name" required="true" styleClass="input" disabled="#{userBean.disable}"/>
 				<label jsfc="h:message" for="name" showSummary="true" showDetail="false"/>
+
+				<label jsfc="h:outputLabel" for="name">#{msgs.email}</label>
+				<input type="text" jsfc="h:inputText" value="#{userBean.user.email}" id="email" required="true" styleClass="input" disabled="#{userBean.disable}">
+					<f:validator validatorId="org.jobs.web.validator.Email"/>
+				</input>
+				<label jsfc="h:message" for="email" showSummary="true" showDetail="false"/>
 				
 				<label jsfc="h:outputLabel" for="password">#{msgs.password}</label>
 				<input type="password" jsfc="h:inputSecret" value="#{userBean.user.password}"  id="password"  styleClass="input" disabled="#{userBean.disable}">

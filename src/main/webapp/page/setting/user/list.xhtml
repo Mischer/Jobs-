@@ -7,10 +7,15 @@
 	
 	<ui:define name="content">
 		<h:form>
+			<input type="hidden" jsfc="h:inputHidden" value="#{userBean.sorting}"  immediate="true"/>
+			<input type="hidden" jsfc="h:inputHidden" value="#{userBean.sort}"  immediate="true"/>
 			<h:dataTable value="#{userBean.listUser}" width="750" var="list" border="0">
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Login" />
+						<h:commandLink value="#{msgs.login}" immediate="true" actionListener="#{userBean.sortEvent}">
+							<f:attribute name="sort" value="username"/>
+							<f:setPropertyActionListener target="#{userBean.sort}" value="username" />
+						</h:commandLink>
 					</f:facet>
 					<h:commandLink action="user.view" value="#{list.username}">
 						<f:param name="id" value="#{list.id}" />
@@ -18,40 +23,48 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Name" />
+						<h:commandLink value="#{msgs.name}" immediate="true">
+							<f:setPropertyActionListener target="#{userBean.sort}" value="username" />
+						</h:commandLink>
 					</f:facet>
 					<h:outputText value="#{list.username}" />
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Enable" />
+						<h:commandLink value="#{msgs.enabled}" immediate="true">
+							<f:setPropertyActionListener target="#{userBean.sort}" value="enabled" />
+						</h:commandLink>
 					</f:facet>
 					<h:outputText value="#{list.enabled}" />
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Account expired" />
+						<h:commandLink value="#{msgs.account_expired}" immediate="true">
+							<f:setPropertyActionListener target="#{userBean.sort}" value="accountExpired" />
+						</h:commandLink>
 					</f:facet>
 					<h:outputText value="#{list.accountExpired}" />
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Credential expired"/>
+						<h:commandLink value="#{msgs.credentials_expired}" immediate="true">
+							<f:setPropertyActionListener target="#{userBean.sort}" value="credentialsExpired" />
+						</h:commandLink>
 					</f:facet>
 					<h:outputText value="#{list.credentialsExpired}" />
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Action" />
+						<h:outputText value="#{msgs.action}" />
 					</f:facet>
 					<h:panelGrid columns="3" cellpadding="3" cellspacing="2" width="150">
-						<h:commandLink action="#{userBean.view}" value="View">
+						<h:commandLink action="#{userBean.view}" value="#{msgs.view}">
 							<f:param name="id" value="#{list.id}" />
 						</h:commandLink>
-						<h:commandLink action="#{userBean.edit}" value="Edit">
+						<h:commandLink action="#{userBean.edit}" value="#{msgs.edit}">
 							<f:param name="id" value="#{list.id}" />
 						</h:commandLink>
-						<h:commandLink action="#{userBean.delete}" value="Delete">
+						<h:commandLink action="#{userBean.delete}" value="#{msgs.delete}">
 							<f:param name="id" value="#{list.id}" />
 						</h:commandLink>
 					</h:panelGrid>

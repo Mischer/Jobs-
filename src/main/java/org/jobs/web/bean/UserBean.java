@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.faces.component.UIComponent;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import javax.faces.model.SelectItem;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,6 +18,7 @@ import javax.servlet.ServletResponse;
 import org.apache.log4j.Logger;
 import org.jobs.persistence.bean.Role;
 import org.jobs.persistence.bean.User;
+import org.jobs.persistence.dao.impl.DaoImpl.Sort;
 import org.jobs.web.FacesUtils;
 import org.jobs.ws.bean.UsersManager;
 
@@ -27,13 +30,18 @@ public class UserBean extends BaseBean {
 
 	private User user;
 	private boolean disable;
+	private String sort;
+	private Sort sorting;
+	private List<User> listUser;
 
 	public UserBean() {
 		userManager = (UsersManager) FacesUtils.getBean("usersWSClient");
+		listUser = userManager.getUserAllOrder(getSort(), getSorting());
 	}
 
 	public List<User> getListUser() {
-		return userManager.getUserAll();
+		return listUser;
+		
 	}
 
 	public String delete() {
@@ -114,9 +122,38 @@ public class UserBean extends BaseBean {
 		}
 		return list;
 	}
+	
+	public void sortEvent(ActionEvent event){
+		UIComponent component = event.getComponent();
+		String sort = component.getAttributes().get("sort").toString();
+		listUser = userManager.getUserAllOrder(sort, Sort.ASC);
+		FacesContext.getCurrentInstance().responseComplete();
+	}
 
 	public boolean isDisable() {
 		return disable;
+	}
+
+	public void setSort(String sort) {
+		if (sort != null && sort.equals(this.sort)) {
+			sorting = getSorting().equals(Sort.ASC) ? Sort.DESC : Sort.ASC;
+		}
+		this.sort = sort;
+	}
+
+	public String getSort() {
+		return sort;
+	}
+
+	public void setSorting(Sort sorting) {
+		this.sorting = sorting;
+	}
+
+	public Sort getSorting() {
+		if (sorting == null) {
+			sorting = Sort.ASC;
+		}
+		return sorting;
 	}
 
 	public String loginAction() throws ServletException, IOException {
