@@ -16,46 +16,46 @@
 			</form>
 			<br/>
 			<form jsfc="h:form">
-			<input type="hidden" jsfc="h:inputHidden" value="#{orderBean.sorting}"  immediate="true"/>
-			<input type="hidden" jsfc="h:inputHidden" value="#{orderBean.sort}"  immediate="true"/>
-			<h:dataTable value="#{orderBean.listOrder}" width="750" var="list" border="0">
-				<h:column>
-					<f:facet name="header">
-						<h:commandLink value="#{msgs.login}" immediate="true" actionListener="#{orderBean.sortEvent}">
-							<f:attribute name="sort" value="username"/>
-							<f:setPropertyActionListener target="#{orderBean.sort}" value="username" />
-						</h:commandLink>
-					</f:facet>
-					<h:commandLink action="user.view" value="#{list.id}">
-						<f:param name="id" value="#{list.id}" />
-					</h:commandLink>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:commandLink value="#{msgs.name}" immediate="true">
-							<f:setPropertyActionListener target="#{userBean.sort}" value="username" />
-						</h:commandLink>
-					</f:facet>
-					<h:outputText value="#{list.startDate}" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="#{msgs.action}" />
-					</f:facet>
-					<h:panelGrid columns="3" cellpadding="3" cellspacing="2" width="150">
-						<h:commandLink action="#{orderBean.view}" value="#{msgs.view}">
+				<input type="hidden" jsfc="h:inputHidden" value="#{orderBean.sorting}"  immediate="true"/>
+				<input type="hidden" jsfc="h:inputHidden" value="#{orderBean.sort}"  immediate="true"/>
+				<h:dataTable value="#{orderBean.listOrder}" width="750" var="list" border="0">
+					<h:column>
+						<f:facet name="header">
+							<h:commandLink value="#{msgs.login}" immediate="true" actionListener="#{orderBean.sortEvent}">
+								<f:attribute name="sort" value="username"/>
+								<f:setPropertyActionListener target="#{orderBean.sort}" value="username" />
+							</h:commandLink>
+						</f:facet>
+						<h:commandLink action="user.view" value="#{list.client.lastName} #{list.client.firstName} #{list.client.middleName}">
 							<f:param name="id" value="#{list.id}" />
 						</h:commandLink>
-						<h:commandLink action="#{orderBean.edit}" value="#{msgs.edit}">
-							<f:param name="id" value="#{list.id}" />
-						</h:commandLink>
-						<h:commandLink action="#{orderBean.delete}" value="#{msgs.delete}">
-							<f:param name="id" value="#{list.id}" />
-						</h:commandLink>
-					</h:panelGrid>
-				</h:column>
-			</h:dataTable>
-		</form>	
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:commandLink value="#{msgs.name}" immediate="true">
+								<f:setPropertyActionListener target="#{userBean.sort}" value="username" />
+							</h:commandLink>
+						</f:facet>
+						<h:outputText value="#{list.startDate}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="#{msgs.action}" />
+						</f:facet>
+						<h:panelGrid columns="3" cellpadding="3" cellspacing="2" width="150">
+							<h:commandLink action="#{orderBean.view}" value="#{msgs.view}">
+								<f:param name="id" value="#{list.id}" />
+							</h:commandLink>
+							<h:commandLink action="#{orderBean.edit}" value="#{msgs.edit}">
+								<f:param name="id" value="#{list.id}" />
+							</h:commandLink>
+							<h:commandLink action="#{orderBean.delete}" value="#{msgs.delete}">
+								<f:param name="id" value="#{list.id}" />
+							</h:commandLink>
+						</h:panelGrid>
+					</h:column>
+				</h:dataTable>
+			</form>	
 		</ui:define>
 	</ui:composition>
 

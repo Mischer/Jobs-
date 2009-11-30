@@ -58,15 +58,18 @@
   </navigation-case>
   <navigation-case>
    <from-outcome>order.view</from-outcome>
-   <to-view-id>/page/order/view.jsp</to-view-id>
+   <to-view-id>/page/order/edit.jsp</to-view-id>
+   <redirect/>
   </navigation-case>
   <navigation-case>
    <from-outcome>order.edit</from-outcome>
    <to-view-id>/page/order/edit.jsp</to-view-id>
+   <redirect/>
   </navigation-case>
   <navigation-case>
    <from-outcome>order.list</from-outcome>
    <to-view-id>/page/order/list.jsp</to-view-id>
+
   </navigation-case>
   
 
